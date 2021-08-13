@@ -1,0 +1,29 @@
+{
+    "Common":{
+        "Title":"Candle"
+    },
+    "Basic":{
+        "Navbar":{
+            "Login":"Giriş Yap",
+            "Logout":"Çıkış Yap",
+            "Mainpage":"Ana Sayfa",
+            "Signup": "Kayıt Ol",
+            "Language":"Dil"
+        },
+        "Sidebar":{}
+    },
+    "Login":{
+        "Login":{
+            "Email":"E-Posta",
+            "Password":"Şifre",
+            "HidePass":"Şifreyi Gizle",
+            "ForgotPass":"Şifremi Unuttum",
+            "Login":"Oturum Aç",
+            "Exception":{
+                "ValidMail":"Lütfen geçerli bir e-posta girin",
+                "IsMail":"E-Posta gerekli",
+                "IsPassword":"Şifre gerekli"
+            }
+        }
+    }
+}

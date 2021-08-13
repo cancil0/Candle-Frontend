@@ -1,0 +1,29 @@
+{
+    "Common":{
+        "Title":"Candle"
+    },
+    "Basic":{
+        "Navbar":{
+            "Login":"Login",
+            "Logout":"Logout",
+            "Mainpage":"Main Page",
+            "Signup": "Sign Up",
+            "Language":"Language"
+        },
+        "Sidebar":{}
+    },
+    "Login":{
+        "Login":{
+            "Email":"E-Mail",
+            "Password":"Password",
+            "HidePass":"Hide Password",
+            "ForgotPass":"Forgot Password",
+            "Login":"Login",
+            "Exception":{
+                "ValidMail":"Please enter a valid email address",
+                "IsMail":"Email is required",
+                "IsPassword":"Password is required"
+            }
+        }
+    }
+}

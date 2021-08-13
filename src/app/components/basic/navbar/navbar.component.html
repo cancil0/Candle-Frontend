@@ -1,0 +1,20 @@
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sideBarOpen()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{'Common.Title' | translate}}</span>
+    <a mat-button>{{'Basic.Navbar.Mainpage' | translate}}</a>
+    <span class="example-spacer"></span>
+    <mat-form-field appearance="fill">
+      <mat-label>{{'Basic.Navbar.Language' | translate}}</mat-label>
+      <mat-select [(ngModel)]="selectedLang">
+        <mat-option *ngFor="let lang of languages" [value]="lang.code" #langs (click)="selectLang(langs.value)">
+          {{ lang.code | capitalizeLetter }}~{{ lang.description }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <a mat-button routerLink="login/signup">{{'Basic.Navbar.Signup' | translate}}</a>
+    <a mat-button routerLink="login">{{'Basic.Navbar.Login' | translate}}</a>
+  </mat-toolbar>
+</p>

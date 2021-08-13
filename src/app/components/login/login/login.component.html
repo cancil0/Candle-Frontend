@@ -1,0 +1,31 @@
+<form class="example-form" [formGroup]="formGroup" (ngSubmit)="login()">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>{{ 'Login.Login.Email' | translate }}</mat-label>
+    <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="mail@example.com"
+      autocomplete="off">
+    <mat-error *ngIf="formGroup.get('email')?.hasError('email') && !formGroup.get('email')?.hasError('required')">
+      {{ 'Login.Login.Exception.ValidMail' | translate }}
+    </mat-error>
+    <mat-error *ngIf="formGroup.get('email')?.hasError('required')">
+      {{ 'Login.Login.Exception.IsMail' | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'Login.Login.Password' | translate }}</mat-label>
+    <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
+      {{ 'Login.Login.Exception.IsPassword' | translate }}
+    </mat-error>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <br>
+  <div class="btn-lgn-group">
+    <button mat-button color="primary" type="button">{{ 'Login.Login.ForgotPass' | translate }}</button>
+    <button class="btn-lgnn" mat-flat-button color="primary" type="submit">{{ 'Login.Login.Login' | translate }}</button>
+  </div>
+</form>
