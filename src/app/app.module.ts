@@ -7,7 +7,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './modules/material.module';
 
 import { NavbarComponent } from './components/basic/navbar/navbar.component';
 import { SidebarComponent } from './components/basic/sidebar/sidebar.component';
