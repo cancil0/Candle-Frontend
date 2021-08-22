@@ -10,9 +10,13 @@ export class NavbarComponent implements OnInit {
 
   @Input()
   sidebar = new SidebarComponent();
-  selectedLang:string = '';
-  isSideBarOpen:boolean = false;
-  languages: any[] = [{ "code":"tr", "description":"Türkçe" }, {"code":"en", "description":"English"}];
+  selectedLang: string = '';
+  isSideBarOpen: boolean = false;
+  languages: any[] = [
+    { "code": "tr", "description": "Türkçe" },
+    { "code": "en", "description": "English" }
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,15 +24,17 @@ export class NavbarComponent implements OnInit {
   }
 
   gett() {
-    console.log('adsa');
   }
 
-  selectLang(value:any){
+  selectLang(value: any) {
+    if (value === localStorage.getItem('lang'))
+      return
+
     localStorage.setItem('lang', value);
     window.location.reload();
   }
 
-  sideBarOpen(): void{
+  sideBarOpen(): void {
     this.isSideBarOpen = !this.isSideBarOpen;
   }
 }

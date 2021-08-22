@@ -24,6 +24,24 @@
                 "IsMail":"E-Posta gerekli",
                 "IsPassword":"Şifre gerekli"
             }
+        },
+        "SignUp":{
+            "Email":"E-Posta",
+            "SecondryEmail":"İkincil (Kurtarma) E-Posta",
+            "Password":"Şifre",
+            "RePassword":"Şifre Tekrar",
+            "Name":"İsim",
+            "SurName":"Soy İsim",
+            "HidePass":"Şifreyi Gizle",
+            "MobileNo":"Telefon Numarası",
+            "BirthDate":"Doğum Tarihi",
+            "SignUp":"Kayıt Ol",
+            "Exception":{
+                "ValidMail":"Lütfen geçerli bir e-posta girin",
+                "IsMail":"E-Posta gerekli",
+                "IsPassword":"Şifre gerekli",
+                "MobileNoIsNumber":"Yalnızca sayı giriniz"
+            }
         }
     }
 }

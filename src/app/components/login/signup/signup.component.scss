@@ -5,3 +5,69 @@
   .mat-form-field {
     margin-top: 16px;
   }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 750px;
+    width: 100%;
+    margin-top: 10%;
+    display: block;
+    float: none;
+  }
+  
+  .example-full-width {
+    width: 80%;
+  }
+
+  .example-full-width {
+    width: 80%;
+  }
+  
+  form {
+    width: 250px;
+    margin: 35px auto 100px;
+    display: block;
+    float: none;
+  }
+  
+  .mat-form-field {
+    width: 70%;
+  }
+  
+  .misc-bottom-padding {
+    margin: 8px 0 20px;
+  }
+  
+  .misc-bottom-padding mat-label {
+    margin-right: 15px;
+  }
+  
+  .mat-radio-label {
+    margin: 0 15px 0 0;
+  }
+  
+  .title-center {
+    margin: 0 auto;
+  }
+  
+  .button-wrapper {
+    margin-top: 10px;
+  }
+  
+  .example-container .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+  

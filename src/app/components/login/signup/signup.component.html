@@ -1,0 +1,107 @@
+<form class="example-form" [formGroup]="formGroup" (ngSubmit)="signup()">
+  <mat-grid-list cols="2" rowHeight="72px">
+    <mat-grid-tile>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>{{ 'Login.SignUp.Email' | translate }}</mat-label>
+        <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+          placeholder="mail@example.com" autocomplete="off" required email>
+        <mat-error *ngIf="formGroup.get('email')?.hasError('email') && !formGroup.get('email')?.hasError('required')">
+          {{ 'Login.SignUp.Exception.ValidMail' | translate }}
+        </mat-error>
+        <mat-error *ngIf="formGroup.get('email')?.hasError('required')">
+          {{ 'Login.SignUp.Exception.IsMail' | translate }}
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>{{ 'Login.SignUp.SecondryEmail' | translate }}</mat-label>
+        <input type="email" matInput formControlName="secondryEmail" [errorStateMatcher]="matcher"
+          placeholder="mail@example.com" autocomplete="off" email>
+        <mat-error
+          *ngIf="formGroup.get('secondryEmail')?.hasError('secondryEmail') && !formGroup.get('secondryEmail')?.hasError('required')">
+          {{ 'Login.SignUp.Exception.ValidMail' | translate }}
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'Login.SignUp.Password' | translate }}</mat-label>
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" [errorStateMatcher]="passwordMatcher"
+          required>
+        <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
+          {{ 'Login.SignUp.Exception.IsPassword' | translate }}
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'Login.SignUp.Password' | translate }} Tekrar</mat-label>
+        <input matInput formControlName="repassword" [type]="hide ? 'password' : 'text'" [errorStateMatcher]="passwordMatcher"
+          required>
+        <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
+          {{ 'Login.SignUp.Exception.IsPassword' | translate }}
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>{{ 'Login.SignUp.Name' | translate }}</mat-label>
+        <input type="text" matInput formControlName="name" [errorStateMatcher]="matcher" placeholder="Can"
+          autocomplete="off" required>
+        <mat-error *ngIf="formGroup.get('name')?.hasError('name') && !formGroup.get('name')?.hasError('required')">
+          {{ 'Login.SignUp.Exception.ValidMail' | translate }}
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>{{ 'Login.SignUp.SurName' | translate }}</mat-label>
+        <input type="text" matInput formControlName="surName" [errorStateMatcher]="matcher" placeholder="ÇİL"
+          autocomplete="off" required>
+        <mat-error
+          *ngIf="formGroup.get('surName')?.hasError('surName') && !formGroup.get('surName')?.hasError('required')">
+          {{ 'Login.SignUp.Exception.ValidMail' | translate }}
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>{{ 'Login.SignUp.MobileNo' | translate }}</mat-label>
+        <input type="text" matInput formControlName="mobileNo" [errorStateMatcher]="matcher" placeholder="5556667788"
+          autocomplete="off" pattern="^\d{3}\d{3}\d{4}$" maxlength="10">
+        <mat-error
+          *ngIf="formGroup.get('mobileNo')?.hasError('mobileNo') && !formGroup.get('mobileNo')?.hasError('required')">
+          {{ 'Login.SignUp.Exception.ValidMail' | translate }}
+        </mat-error>
+        <mat-error *ngIf="formGroup.get('mobileNo')?.hasError('pattern')">
+          {{ 'Login.SignUp.Exception.MobileNoIsNumber' | translate }}
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'Login.SignUp.BirthDate' | translate }}</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="birthDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="1" rowHeight="75px">
+    <mat-grid-tile>
+      <div class="btn-lgn-group">
+        <button class="btn-lgnn" mat-flat-button color="primary"
+          type="submit">{{ 'Login.SignUp.SignUp' | translate }}</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
