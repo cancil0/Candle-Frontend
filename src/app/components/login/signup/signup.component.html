@@ -40,7 +40,7 @@
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field appearance="outline">
-        <mat-label>{{ 'Login.SignUp.Password' | translate }} Tekrar</mat-label>
+        <mat-label>{{ 'Login.SignUp.RePassword' | translate }}</mat-label>
         <input matInput formControlName="repassword" [type]="hide ? 'password' : 'text'" [errorStateMatcher]="passwordMatcher"
           required>
         <mat-error *ngIf="formGroup.get('password')?.hasError('required')">

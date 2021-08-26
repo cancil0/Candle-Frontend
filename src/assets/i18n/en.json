@@ -27,7 +27,7 @@
         },
         "SignUp":{
             "Email":"E-Mail",
-            "SecondryEmail":"İkincil (Kurtarma) E-Posta",
+            "SecondryEmail":"Secondry E-Mail",
             "Password":"Password",
             "RePassword":"Re-Password",
             "Name":"Name",

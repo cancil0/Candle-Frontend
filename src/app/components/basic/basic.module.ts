@@ -11,10 +11,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [];
 
+const _components = [
+    NavbarComponent,
+    SidebarComponent
+]
+
 @NgModule({
     declarations: [
-        NavbarComponent,
-        SidebarComponent,
+        ..._components
     ],
     imports: [
         RouterModule.forChild(routes),
@@ -24,6 +28,8 @@ const routes: Routes = [];
         FormsModule,
         ReactiveFormsModule
     ],
-    exports: []
+    exports: [
+        ..._components
+    ]
 })
 export class BasicModule { }
