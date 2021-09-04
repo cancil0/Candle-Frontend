@@ -57,6 +57,14 @@
                 "FailedSignUp":"Lütfen tüm alanları doğru bir şekilde doldurduğunuzdan emin olun",
                 "PasswordsNotMatch":"Yazdığınız şifreler eşleşmiyor"
             }
+        },
+        "ForgotPassword":{
+            "Send":"Gönder",
+            "Success":"İşlem Başarılı",
+            "Error":"İşlem Başarısız",
+            "Exception":{
+                "NotFoundWithGivenMail":"Maile bağlı bir hesap bulunamadı"
+            }
         }
     }
     

@@ -9,6 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { BasicModule } from './components/basic/basic.module';
 import { LoginModule } from './components/login/login.module';
+import { MainModule } from './components/main/main.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -24,6 +25,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MainModule,
     LoginModule,
     BasicModule,
     TranslateModule.forRoot({

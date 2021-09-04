@@ -57,6 +57,14 @@
                 "FailedSignUp":"Please make sure all fields are properly filled",
                 "PasswordsNotMatch":"Passwords are not matched"
             }
+        },
+        "ForgotPassword":{
+            "Send":"Send",
+            "Success":"Successful",
+            "Error":"Failed",
+            "Exception":{
+                "NotFoundWithGivenMail":"Account is not found with given mail"
+            }
         }
     }
 }
