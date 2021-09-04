@@ -1,0 +1,20 @@
+<mat-icon-button class="closeButton" [mat-dialog-close]="false" *ngIf="data.closeButton">
+  <mat-icon>close</mat-icon>
+</mat-icon-button>
+
+<div class="{{data.type}}" *ngIf="data.type == 'error' || data.type == 'success' || data.type == 'info'">
+  <div mat-dialog-content>
+    {{ data.text }}
+  </div>
+</div>
+
+<div *ngIf="data.type == 'question'">
+  <h2 mat-dialog-title>{{'Basic.Dialog.Question' | translate}}</h2>
+  <div mat-dialog-content>
+    {{ data.text }}
+  </div>
+  <mat-dialog-actions>
+    <button class="mat-raised-button" [mat-dialog-close]="false">{{'Basic.Dialog.No' | translate}}</button>
+    <button class="mat-raised-button mat-primary" [mat-dialog-close]="true">{{'Basic.Dialog.Yes' | translate}}</button>
+  </mat-dialog-actions>
+</div>

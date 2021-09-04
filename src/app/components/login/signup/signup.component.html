@@ -27,28 +27,28 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>{{ 'Login.SignUp.Password' | translate }}</mat-label>
-        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" [errorStateMatcher]="passwordMatcher"
+        <input matInput formControlName="password" [type]="hidepass ? 'password' : 'text'" [errorStateMatcher]="passwordMatcher"
           required>
         <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
           {{ 'Login.SignUp.Exception.IsPassword' | translate }}
         </mat-error>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <button mat-icon-button matSuffix type="button" (click)="hidepass = !hidepass" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidepass">
+          <mat-icon>{{hidepass ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>{{ 'Login.SignUp.RePassword' | translate }}</mat-label>
-        <input matInput formControlName="repassword" [type]="hide ? 'password' : 'text'" [errorStateMatcher]="passwordMatcher"
+        <input matInput formControlName="repassword" [type]="hiderepass ? 'password' : 'text'" [errorStateMatcher]="passwordMatcher"
           required>
         <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
           {{ 'Login.SignUp.Exception.IsPassword' | translate }}
         </mat-error>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <button mat-icon-button matSuffix type="button" (click)="hiderepass = !hiderepass" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hiderepass">
+          <mat-icon>{{hiderepass ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
     </mat-grid-tile>

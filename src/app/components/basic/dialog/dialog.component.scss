@@ -1,0 +1,59 @@
+button.mat-raised-button.mat-primary{
+    margin-left: 10px;
+}
+
+.mat-dialog-actions {
+    justify-content: center;
+}
+
+.mat-dialog-close{
+    justify-content:right
+}
+
+.errorDialog {
+    .mat-dialog-container{
+        background-color: hsl(0, 53%, 59%);
+        color:white;
+    }
+
+    /*.closeButton{
+        float: right;
+      }*/
+      
+}
+
+.successDialog {
+    .mat-dialog-container{
+        background-color: hsla(118, 84%, 32%, 0.882);
+        color:white;
+    }
+
+    /*.closeButton{
+        float: right;
+    }*/
+
+}
+
+/*.infoDialog {
+    .mat-dialog-container{
+        background-color: hsla(118, 84%, 32%, 0.882);
+        color:white;
+    }
+
+    .closeButton{
+        float: right;
+    }
+
+}*/
+
+.questionDialog {
+    .mat-dialog-container{
+        background-color: white;
+        color:black
+    }
+
+    /*.closeButton{
+       float: right;
+    }*/
+
+}

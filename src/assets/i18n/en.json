@@ -1,6 +1,7 @@
 {
     "Common":{
-        "Title":"Candle"
+        "Title":"Candle",
+        "PageNotFound":"Page Not Found"
     },
     "Basic":{
         "Navbar":{
@@ -10,7 +11,15 @@
             "Signup": "Sign Up",
             "Language":"Language"
         },
-        "Sidebar":{}
+        "Sidebar":{},
+        "Dialog":{
+            "Success":"Success",
+            "Error":"Error",
+            "Info":"Info",
+            "Question":"Question",
+            "No":"No",
+            "Yes":"Yes"
+        }
     },
     "Login":{
         "Login":{
@@ -19,6 +28,8 @@
             "HidePass":"Hide Password",
             "ForgotPass":"Forgot Password",
             "Login":"Login",
+            "SuccessLogin":"Login Successful",
+            "UnSuccessfulLogin":"Login Failed",
             "Exception":{
                 "ValidMail":"Please enter a valid email address",
                 "IsMail":"Email is required",
@@ -36,11 +47,15 @@
             "MobileNo":"Mobile No",
             "BirthDate":"Birth Date",
             "SignUp":"Sign Up",
+            "SuccessfulSingUpProceed":"Sign Up sucessful. Do you want to login now?",
             "Exception":{
                 "ValidMail":"Please enter a valid email address",
                 "IsMail":"Email is required",
                 "IsPassword":"Password is required",
-                "MobileNoIsNumber":"Enter only digit"
+                "MobileNoIsNumber":"Enter only digit",
+                "MailComparison":"Mail which you want to take can not be same with secondry mail",
+                "FailedSignUp":"Please make sure all fields are properly filled",
+                "PasswordsNotMatch":"Passwords are not matched"
             }
         }
     }

@@ -21,14 +21,14 @@
         <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
           {{ 'Login.Login.Exception.IsPassword' | translate }}
         </mat-error>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list cols="2" rowHeight="72px" roWidth="50px">
+  <mat-grid-list cols="2" rowHeight="72px">
     <mat-grid-tile>
       <button mat-button color="primary" type="button">{{ 'Login.Login.ForgotPass' | translate }}</button>  
     </mat-grid-tile>

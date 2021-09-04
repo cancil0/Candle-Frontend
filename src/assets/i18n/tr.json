@@ -1,6 +1,7 @@
 {
     "Common":{
-        "Title":"Candle"
+        "Title":"Candle",
+        "PageNotFound":"Sayfa Bulunamadı"
     },
     "Basic":{
         "Navbar":{
@@ -10,7 +11,15 @@
             "Signup": "Kayıt Ol",
             "Language":"Dil"
         },
-        "Sidebar":{}
+        "Sidebar":{},
+        "Dialog":{
+            "Success":"İşlem Başarılı",
+            "Error":"Hata Alındı",
+            "Info":"Bilgi",
+            "Question":"Soru",
+            "No":"Hayır",
+            "Yes":"Evet"
+        }
     },
     "Login":{
         "Login":{
@@ -19,6 +28,8 @@
             "HidePass":"Şifreyi Gizle",
             "ForgotPass":"Şifremi Unuttum",
             "Login":"Oturum Aç",
+            "SuccessLogin":"Giriş Başarılı",
+            "UnSuccessfulLogin":"Giriş Başarısız",
             "Exception":{
                 "ValidMail":"Lütfen geçerli bir e-posta girin",
                 "IsMail":"E-Posta gerekli",
@@ -36,12 +47,17 @@
             "MobileNo":"Telefon Numarası",
             "BirthDate":"Doğum Tarihi",
             "SignUp":"Kayıt Ol",
+            "SuccessfulSingUpProceed":"Kayıt başarılı. Şimdi giriş yapmak istiyor musunuz?",
             "Exception":{
                 "ValidMail":"Lütfen geçerli bir e-posta girin",
                 "IsMail":"E-Posta gerekli",
                 "IsPassword":"Şifre gerekli",
-                "MobileNoIsNumber":"Yalnızca sayı giriniz"
+                "MobileNoIsNumber":"Yalnızca sayı giriniz",
+                "MailComparison":"Almak istediğiniz mail ile ikincil mail aynı olamaz",
+                "FailedSignUp":"Lütfen tüm alanları doğru bir şekilde doldurduğunuzdan emin olun",
+                "PasswordsNotMatch":"Yazdığınız şifreler eşleşmiyor"
             }
         }
     }
+    
 }
