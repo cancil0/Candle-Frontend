@@ -1,5 +1,8 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { SidebarComponent } from '../sidebar/sidebar.component';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Post } from 'src/app/models/user/post.model';
+import { AuthenticationService } from 'src/app/services/auth/authentication.service';
+import { PostService } from 'src/app/services/postService/post.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,22 +11,28 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input()
-  sidebar = new SidebarComponent();
+  isLogin:boolean = false;
   selectedLang: string = '';
   isSideBarOpen: boolean = false;
+  posts : Post[] = [];
   languages: any[] = [
     { "code": "tr", "description": "Türkçe" },
     { "code": "en", "description": "English" }
   ];
 
-  constructor() { }
+  constructor(private auth:AuthenticationService,
+              private router:Router,
+              private post : PostService) { }
 
   ngOnInit(): void {
     this.selectedLang = localStorage.getItem('lang') || 'en';
+    this.getAllPosts();
+    this.isLogin = this.auth.isLogin();
   }
-
-  gett() {
+  
+  async getAllPosts(){
+    this.posts = await this.post.getAllPosts();
+    console.log(this.post);
   }
 
   selectLang(value: any) {
@@ -34,7 +43,12 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
   }
 
-  sideBarOpen(): void {
-    this.isSideBarOpen = !this.isSideBarOpen;
+  logOut(){
+    this.auth.logout();
+    this.router.navigateByUrl('/login').then(() => {
+      window.location.reload();
+    });
+    
   }
+
 }

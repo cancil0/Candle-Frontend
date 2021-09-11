@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserDto } from 'src/app/models/user/userDto.model';
+import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 import { DialogService } from 'src/app/services/dialogService/dialog.service';
 
 @Component({
@@ -15,24 +17,33 @@ export class LoginComponent implements OnInit {
     password:new FormControl('', )
   });
 
+  returnUrl : string = '';
   hide:boolean = true;
   matcher = new ErrorStateMatcher();
 
   constructor(private dialog:DialogService,
-              private router: Router) { }
+              private route: ActivatedRoute,
+              private router: Router,
+              private authService:AuthenticationService) { }
 
   ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  login():void{
+  async login(){
     if(!this.formGroup.valid){
       this.dialog.open('error', 'Login.Login.UnSuccessfulLogin');
       return;
     }
+    const {email,password} = this.formGroup.getRawValue()
 
-    this.dialog.open('success', 'Login.Login.SuccessLogin',false,true,true,1500).subscribe(() => {
-      this.router.navigateByUrl('/');
-    });
+    await this.authService.logIn(email,password).toPromise().then(() => {
+      this.router.navigateByUrl('/main').then(() => {
+        window.location.reload();
+      });
+      
+    })
+    
   }
 
 }

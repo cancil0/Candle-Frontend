@@ -1,11 +1,7 @@
 <p>
   <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
-      (click)="sideBarOpen()">
-      <mat-icon>menu</mat-icon>
-    </button>
     <span>{{'Common.Title' | translate}}</span>
-    <a mat-button routerLink="">{{'Basic.Navbar.Mainpage' | translate}}</a>
+    <a mat-button routerLink="" *ngIf="isLogin">{{'Basic.Navbar.Mainpage' | translate}}</a>
     <span class="example-spacer"></span>
 
     <mat-form-field appearance="fill" class="chooseLang">
@@ -16,7 +12,8 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <a mat-button routerLink="login/signup">{{'Basic.Navbar.Signup' | translate}}</a>
-    <a mat-button routerLink="login">{{'Basic.Navbar.Login' | translate}}</a>
+    <a mat-button (click)="logOut()" *ngIf="isLogin">{{'Basic.Navbar.Logout' | translate}}</a>
+    <a mat-button routerLink="login/signup" *ngIf="!isLogin">{{'Basic.Navbar.Signup' | translate}}</a>
+    <a mat-button routerLink="login" *ngIf="!isLogin">{{'Basic.Navbar.Login' | translate}}</a>
   </mat-toolbar>
 </p>

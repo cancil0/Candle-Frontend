@@ -1,0 +1,17 @@
+{
+  "posts": [
+    {
+      "name": "",
+      "id": 0
+    }
+  ],
+  "login": {
+    "email": "c@c.com",
+    "password": "asdasd"
+  },
+  "token": {
+    "token": "cilaaa",
+    "refreshToken": "asdsad",
+    "id": 0
+  }
+}
