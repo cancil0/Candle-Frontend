@@ -9,7 +9,9 @@
             "Logout":"Logout",
             "Mainpage":"Main Page",
             "Signup": "Sign Up",
-            "Language":"Language"
+            "Language":"Language",
+            "Discover":"Discover",
+            "Profile":"Profile"
         },
         "Sidebar":{},
         "Dialog":{
@@ -65,6 +67,17 @@
             "Exception":{
                 "NotFoundWithGivenMail":"Account is not found with given mail"
             }
+        }
+    },
+    "Main":{
+        "ShareBox":{
+            "WhatRUThink":"What are you thinking?",
+            "Share":"Share",
+            "AddPhoto":"Add Photo"
+        },
+        "MainCenter":{
+            "Like":"Like",
+            "Comment":"Comment"
         }
     }
 }

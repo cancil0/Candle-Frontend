@@ -6,7 +6,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from 'src/app/modules/material.module';
 
 import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { CapitalizeLetterPipe } from 'src/app/pipes/capitalizeletter.pipe';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
 
 const _components = [
     NavbarComponent,
-    SidebarComponent,
     DialogComponent,
     PageNotFoundComponent,
     CapitalizeLetterPipe

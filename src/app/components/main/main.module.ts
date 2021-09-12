@@ -6,15 +6,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from 'src/app/modules/material.module';
 import { AuthGuard } from 'src/app/services/auth/auth.guard';
+import { MainCenterComponent } from './main-center/main-center.component';
+import { MainLeftComponent } from './main-left/main-left.component';
+import { DiscoverComponent } from './discover/discover.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ShareBoxComponent } from './share-box/share-box.component';
 
 
 const routes: Routes = [
-  {path: 'main', component: MainComponent, canActivate : [AuthGuard]}
+  {path: 'main', component: MainComponent, canActivate : [AuthGuard]},
+  {path: 'discover', component: DiscoverComponent, canActivate : [AuthGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate : [AuthGuard]}
 ];
 
 @NgModule({
   declarations: [
-    MainComponent
+    MainComponent,
+    MainCenterComponent,
+    MainLeftComponent,
+    DiscoverComponent,
+    ProfileComponent,
+    ShareBoxComponent
   ],
   imports: [
       RouterModule.forChild(routes),

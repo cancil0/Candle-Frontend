@@ -3,8 +3,7 @@
 }
 
 .mat-form-field{
-    max-width: 150px;
-    max-height: 85px;
+    max-width: 6%;
 }
 
 .mat-radio-button ~ .mat-radio-button {
@@ -15,4 +14,12 @@
     font-size: 14px;
     margin-top: 20px;
     border-bottom: 0ch !important;
+}
+
+.title:hover{
+    cursor: pointer;
+}
+
+.navbar{
+    width: 100%;
 }

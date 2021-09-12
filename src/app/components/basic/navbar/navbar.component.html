@@ -1,9 +1,10 @@
-<p>
+<p class="navbar">
   <mat-toolbar color="primary">
-    <span>{{'Common.Title' | translate}}</span>
-    <a mat-button routerLink="" *ngIf="isLogin">{{'Basic.Navbar.Mainpage' | translate}}</a>
+    <span class="title" routerLink="/main">{{'Common.Title' | translate}}</span>
+    <a mat-button routerLink="/main" *ngIf="isLogin">{{'Basic.Navbar.Mainpage' | translate}}</a>
+    <a mat-button routerLink="/profile" *ngIf="isLogin">{{'Basic.Navbar.Profile' | translate}}</a>
+    <a mat-button routerLink="/discover" *ngIf="isLogin">{{'Basic.Navbar.Discover' | translate}}</a>
     <span class="example-spacer"></span>
-
     <mat-form-field appearance="fill" class="chooseLang">
       <mat-label>{{'Basic.Navbar.Language' | translate}}</mat-label>
       <mat-select [(ngModel)]="selectedLang">

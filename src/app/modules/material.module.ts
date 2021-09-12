@@ -18,6 +18,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
 import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ErrorStateMatcher, MatNativeDateModule, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
@@ -48,7 +50,9 @@ const _matModules = [
   MatTableModule,
   MatPaginatorModule,
   MatStepperModule,
-  MatDialogModule
+  MatDialogModule,
+  MatMenuModule,
+  MatCardModule
 ]
 
 @NgModule({
