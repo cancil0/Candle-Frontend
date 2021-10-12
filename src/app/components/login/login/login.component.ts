@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserDto } from 'src/app/models/user/userDto.model';
-import { AuthenticationService } from 'src/app/services/auth/authentication.service';
-import { DialogService } from 'src/app/services/dialogService/dialog.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,29 +18,12 @@ export class LoginComponent implements OnInit {
   hide:boolean = true;
   matcher = new ErrorStateMatcher();
 
-  constructor(private dialog:DialogService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private authService:AuthenticationService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  async login(){
-    if(!this.formGroup.valid){
-      this.dialog.open('error', 'Login.Login.UnSuccessfulLogin');
-      return;
-    }
-    const {email,password} = this.formGroup.getRawValue()
-
-    await this.authService.logIn(email,password).toPromise().then(() => {
-      this.router.navigateByUrl('/main').then(() => {
-        window.location.reload();
-      });
-      
-    })
-    
-  }
+  login(){}
 
 }

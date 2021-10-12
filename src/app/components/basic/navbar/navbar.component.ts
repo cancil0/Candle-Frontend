@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,12 +17,10 @@ export class NavbarComponent implements OnInit {
     { "code": "en", "description": "English" }
   ];
 
-  constructor(private auth:AuthenticationService,
-              private router:Router) { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.selectedLang = localStorage.getItem('lang') || 'en';
-    this.isLogin = this.auth.isLogin();
   }
   
   selectLang(value: any) {
@@ -38,7 +35,6 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut(){
-    this.auth.logout();
     this.router.navigateByUrl('/login').then(() => {
       window.location.reload();
     });
