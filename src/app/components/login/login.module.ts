@@ -8,8 +8,11 @@ import { MaterialModule } from 'src/app/modules/material.module';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgotpassword/forgotpassword.component';
+import { EnterPinDialogComponent } from './forgotpassword/enterpindialog/enterpindialog.component';
+import { ChangePasswordDialogComponent } from './forgotpassword/changepassworddialog/changepassworddialog.component';
 
 const routes: Routes = [
+    { path: '', component: LoginComponent },
     { path: 'login', component: LoginComponent },
     { path: 'login/signup', component: SignupComponent },
     { path: 'login/forgot-password', component: ForgotPasswordComponent }
@@ -19,7 +22,9 @@ const routes: Routes = [
     declarations: [
         LoginComponent,
         SignupComponent,
-        ForgotPasswordComponent
+        ForgotPasswordComponent,
+        EnterPinDialogComponent,
+        ChangePasswordDialogComponent
     ],
     imports: [
         RouterModule.forChild(routes),

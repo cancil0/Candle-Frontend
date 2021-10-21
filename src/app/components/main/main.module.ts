@@ -10,12 +10,13 @@ import { MainLeftComponent } from './main-left/main-left.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ShareBoxComponent } from './share-box/share-box.component';
+import { LoginGuard } from 'src/app/common/guard/loginGuard';
 
 
 const routes: Routes = [
-  {path: 'main', component: MainComponent},
-  {path: 'discover', component: DiscoverComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'main', component: MainComponent,canActivate: [LoginGuard]},
+  {path: 'discover', component: DiscoverComponent, canActivate: [LoginGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({

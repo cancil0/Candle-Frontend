@@ -16,10 +16,10 @@
     <mat-grid-tile>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>{{ 'Login.SignUp.SecondryEmail' | translate }}</mat-label>
-        <input type="email" matInput formControlName="secondryEmail" [errorStateMatcher]="matcher"
+        <input type="email" matInput formControlName="secondaryEmail" [errorStateMatcher]="matcher"
           placeholder="mail@example.com" autocomplete="off" email>
         <mat-error
-          *ngIf="formGroup.get('secondryEmail')?.hasError('secondryEmail') && !formGroup.get('secondryEmail')?.hasError('required')">
+          *ngIf="formGroup.get('secondaryEmail')?.hasError('secondaryEmail') && !formGroup.get('secondaryEmail')?.hasError('required')">
           {{ 'Login.SignUp.Exception.ValidMail' | translate }}
         </mat-error>
       </mat-form-field>
@@ -76,15 +76,22 @@
     <mat-grid-tile>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>{{ 'Login.SignUp.MobileNo' | translate }}</mat-label>
-        <input type="text" matInput formControlName="mobileNo" [errorStateMatcher]="matcher" placeholder="5556667788"
+        <input type="text" matInput formControlName="mobilePhone" [errorStateMatcher]="matcher" placeholder="5556667788"
           autocomplete="off" pattern="^\d{3}\d{3}\d{4}$" maxlength="10">
         <mat-error
-          *ngIf="formGroup.get('mobileNo')?.hasError('mobileNo') && !formGroup.get('mobileNo')?.hasError('required')">
+          *ngIf="formGroup.get('mobilePhone')?.hasError('mobilePhone') && !formGroup.get('mobilePhone')?.hasError('required')">
           {{ 'Login.SignUp.Exception.ValidMail' | translate }}
         </mat-error>
         <mat-error *ngIf="formGroup.get('mobileNo')?.hasError('pattern')">
           {{ 'Login.SignUp.Exception.MobileNoIsNumber' | translate }}
         </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>{{ 'Login.SignUp.UserName' | translate }}</mat-label>
+        <input type="text" matInput formControlName="userName" placeholder="user.name"
+          autocomplete="off" required>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>

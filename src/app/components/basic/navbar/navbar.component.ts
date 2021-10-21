@@ -11,7 +11,8 @@ export class NavbarComponent implements OnInit {
   isLogin:boolean = false;
   selectedLang: string = '';
   isSideBarOpen: boolean = false;
-  
+  token: string = '';
+
   languages: any[] = [
     { "code": "tr", "description": "Türkçe" },
     { "code": "en", "description": "English" }
@@ -21,6 +22,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedLang = localStorage.getItem('lang') || 'en';
+    this.token = localStorage.getItem('token') || '';
+
+    if(this.token !== ''){
+      this.isLogin = true;
+    }
   }
   
   selectLang(value: any) {
@@ -35,6 +41,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut(){
+    localStorage.removeItem('token');
     this.router.navigateByUrl('/login').then(() => {
       window.location.reload();
     });

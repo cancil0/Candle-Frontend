@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" class="example-form">
+    <div>
+        <h2 mat-dialog-title>{{'Basic.Dialog.Question' | translate}}</h2>
+        <div mat-dialog-content>
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'Login.ForgotPassword.EnterPin' | translate }}</mat-label>
+                <input matInput #input formControlName="pin" maxlength="6" minlength="6" placeholder="123456" required>
+            </mat-form-field>
+        </div>
+        <mat-dialog-actions>
+        <button class="mat-raised-button" [mat-dialog-close]="false">{{ 'Login.ForgotPassword.Close' | translate }}</button>
+        <button class="mat-raised-button mat-primary" (click)="send()">{{ 'Login.ForgotPassword.Send' | translate }}</button>
+        </mat-dialog-actions>
+    </div>
+</form>

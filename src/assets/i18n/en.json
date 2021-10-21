@@ -43,6 +43,7 @@
             "SecondryEmail":"Secondry E-Mail",
             "Password":"Password",
             "RePassword":"Re-Password",
+            "UserName":"User Name",
             "Name":"Name",
             "SurName":"SurName",
             "HidePass":"Hide Password",
@@ -62,10 +63,17 @@
         },
         "ForgotPassword":{
             "Send":"Send",
+            "Close":"Close",
             "Success":"Successful",
             "Error":"Failed",
+            "Email":"Email",
+            "MobilePhone":"Mobile Phone",
+            "UserName":"User Name",
+            "EnterPin":"Enter Pin",
+            "SuccessChangedPassword":"Your password is changed successfully",
             "Exception":{
-                "NotFoundWithGivenMail":"Account is not found with given mail"
+                "NotFoundWithGivenMail":"Account is not found with given mail",
+                "EnteredWrongPin":"You enter wrong pin. Please try again"
             }
         }
     },

@@ -43,6 +43,7 @@
             "SecondryEmail":"İkincil (Kurtarma) E-Posta",
             "Password":"Şifre",
             "RePassword":"Şifre Tekrar",
+            "UserName":"Kullanıcı Adı",
             "Name":"İsim",
             "SurName":"Soy İsim",
             "HidePass":"Şifreyi Gizle",
@@ -64,8 +65,14 @@
             "Send":"Gönder",
             "Success":"İşlem Başarılı",
             "Error":"İşlem Başarısız",
+            "Email":"E-Posta",
+            "MobilePhone":"Telefon Numarası",
+            "UserName":"Kullanıcı Adı",
+            "EnterPin":"Pini Giriniz",
+            "SuccessChangedPassword":"Şifreniz başarıyla değiştirlmiştir",
             "Exception":{
-                "NotFoundWithGivenMail":"Maile bağlı bir hesap bulunamadı"
+                "NotFoundWithGivenMail":"Maile bağlı bir hesap bulunamadı",
+                "EnteredWrongPin":"Yanlış pin girdiniz. Lütfen tekrar deneyin"
             }
         }
     },

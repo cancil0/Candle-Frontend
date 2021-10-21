@@ -72,10 +72,13 @@ const _matModules = [
         showError: true
       }
     },
-
     {
       provide: ErrorStateMatcher,
       useClass: ShowOnDirtyErrorStateMatcher
+    },
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false }
     }
   ]
 })

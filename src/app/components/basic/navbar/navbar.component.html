@@ -1,6 +1,6 @@
 <p class="navbar">
   <mat-toolbar color="primary">
-    <span class="title" routerLink="/main">{{'Common.Title' | translate}}</span>
+    <span class="title" [routerLink]="token !== '' ? '/main' : '/' ">{{'Common.Title' | translate}}</span>
     <a mat-button routerLink="/main" *ngIf="isLogin">{{'Basic.Navbar.Mainpage' | translate}}</a>
     <a mat-button routerLink="/profile" *ngIf="isLogin">{{'Basic.Navbar.Profile' | translate}}</a>
     <a mat-button routerLink="/discover" *ngIf="isLogin">{{'Basic.Navbar.Discover' | translate}}</a>
