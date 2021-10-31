@@ -48,3 +48,6 @@ Thumbs.db
 
 # User Files
  /src/assets/userMedias
+*.jpeg
+*.jpg
+*.mp4
