@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/userService/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,23 +10,22 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   isLogin:boolean = false;
-  selectedLang: string = '';
-  isSideBarOpen: boolean = false;
   token: string = '';
+  userNameSurName:string = '';
 
   languages: any[] = [
     { "code": "tr", "description": "Türkçe" },
     { "code": "en", "description": "English" }
   ];
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+              private userService:UserService) { }
 
   ngOnInit(): void {
-    this.selectedLang = localStorage.getItem('lang') || 'en';
     this.token = localStorage.getItem('token') || '';
-
     if(this.token !== ''){
       this.isLogin = true;
+      this.userNameSurName = this.userService.userNameSurname;
     }
   }
   
@@ -35,9 +35,6 @@ export class NavbarComponent implements OnInit {
 
     localStorage.setItem('lang', value);
     window.location.reload();
-  }
-
-  share(){
   }
 
   logOut(){

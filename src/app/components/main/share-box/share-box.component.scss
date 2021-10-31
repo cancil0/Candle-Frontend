@@ -1,5 +1,5 @@
 .mat-form-field{
-    width: 30%;
+    width: 50%;
 }
 
 .textarea-container textarea {
@@ -9,4 +9,8 @@
   position: relative;
   bottom: auto;
   right: auto;
+}
+
+.file-input {
+  display: none;
 }

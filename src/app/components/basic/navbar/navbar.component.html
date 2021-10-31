@@ -5,15 +5,32 @@
     <a mat-button routerLink="/profile" *ngIf="isLogin">{{'Basic.Navbar.Profile' | translate}}</a>
     <a mat-button routerLink="/discover" *ngIf="isLogin">{{'Basic.Navbar.Discover' | translate}}</a>
     <span class="example-spacer"></span>
-    <mat-form-field appearance="fill" class="chooseLang">
-      <mat-label>{{'Basic.Navbar.Language' | translate}}</mat-label>
-      <mat-select [(ngModel)]="selectedLang">
-        <mat-option *ngFor="let lang of languages" [value]="lang.code" #langs (click)="selectLang(lang.code)">
-          {{ lang.description }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <a mat-button (click)="logOut()" *ngIf="isLogin">{{'Basic.Navbar.Logout' | translate}}</a>
+    <button type="button" *ngIf="isLogin"  matBadge="2" [matBadgeHidden]="true"  matBadgeColor="warn" mat-icon-button matTooltip="{{'Basic.Navbar.Messages' | translate}}">
+      <mat-icon> message</mat-icon>
+    </button>
+    <button type="button" *ngIf="isLogin"  matBadge="4" [matBadgeHidden]="true"  matBadgeColor="warn" mat-icon-button matTooltip="{{'Basic.Navbar.Notifications' | translate}}">
+      <mat-icon *ngIf="false">notifications_none</mat-icon>
+      <mat-icon *ngIf="true">notifications</mat-icon>
+    </button>
+
+    <button mat-button [matMenuTriggerFor]="loginMenu" *ngIf="isLogin">
+      <span>{{userNameSurName}}</span>
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #loginMenu="matMenu" [hasBackdrop]="true">
+      <button mat-menu-item [matMenuTriggerFor]="langua">
+        <span>{{'Basic.Navbar.Language' | translate}}</span>
+      </button>
+      <button mat-menu-item >
+        <span>{{'Basic.Navbar.Options' | translate}}</span>
+      </button>
+      <button mat-menu-item (click)="logOut()">
+        <span>{{'Basic.Navbar.Logout' | translate}}</span>
+      </button>
+    </mat-menu>
+    <mat-menu #langua="matMenu" xPosition="before"> 
+      <button mat-menu-item *ngFor="let lang of languages" (click)="selectLang(lang.code)">{{ lang.description }}</button>
+    </mat-menu>
     <a mat-button routerLink="login/signup" *ngIf="!isLogin">{{'Basic.Navbar.Signup' | translate}}</a>
     <a mat-button routerLink="login" *ngIf="!isLogin">{{'Basic.Navbar.Login' | translate}}</a>
   </mat-toolbar>

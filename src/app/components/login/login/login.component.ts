@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
   matcher = new ErrorStateMatcher();
   userLoginDto : UserLoginDto = {
     email:'',
-    mobilePhone:'',
     password:'',
+    mobilePhone:'', 
     userName:''
   };
 
@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
   login(){
     this.userLoginDto = {
       email:this.formGroup.controls['email'].value,
-      mobilePhone:'',
       password:this.formGroup.controls['password'].value,
+      mobilePhone:'',
       userName:''
     }
     this.loginService.login(this.userLoginDto).subscribe(res =>{
@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/main']).then(()=>{
           window.location.reload();
         });
+      }else{
+        this.dialogService.open('error', 'Login.Login.Exception.WrongMailPassword');
       }
     },
     (error) => {

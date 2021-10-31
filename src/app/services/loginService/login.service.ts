@@ -10,15 +10,16 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginService {
 
+  options = {
+    headers : new HttpHeaders()
+              .set('Content-Type', 'application/json')
+  }
+
   constructor(private http : HttpClient) { }
 
   login(userLoginDto:UserLoginDto):Observable<ResultData<string>>{
     const url : string = `${environment.apiUrl}api/Login/Login`;
-    let options = {
-      headers : new HttpHeaders()
-                .set('Content-Type', 'application/json')
-    }
-    return this.http.post<ResultData<string>>(url,userLoginDto,options);
+    return this.http.post<ResultData<string>>(url,userLoginDto,this.options);
   }
 
 }

@@ -10,14 +10,15 @@ import { environment } from 'src/environments/environment';
 })
 export class SignUpService {
 
+  options = {
+    headers : new HttpHeaders()
+              .set('Content-Type', 'application/json')
+  }
+
   constructor(private http : HttpClient) { }
 
   signUp(signupRequestDto:SignupRequestDto):Observable<ResultData<SignupRequestDto>>{
     const url : string = `${environment.apiUrl}api/Login/SignUp`;
-    let options = {
-      headers : new HttpHeaders()
-                .set('Content-Type', 'application/json')
-    }
-    return this.http.post<ResultData<SignupRequestDto>>(url,signupRequestDto,options);
+    return this.http.post<ResultData<SignupRequestDto>>(url,signupRequestDto,this.options);
   }
 }

@@ -11,7 +11,10 @@
             "Signup": "Sign Up",
             "Language":"Language",
             "Discover":"Discover",
-            "Profile":"Profile"
+            "Profile":"Profile",
+            "Notifications":"Notifications",
+            "Messages":"Messages",
+            "Options":"Options"
         },
         "Sidebar":{},
         "Dialog":{
@@ -35,7 +38,8 @@
             "Exception":{
                 "ValidMail":"Please enter a valid email address",
                 "IsMail":"Email is required",
-                "IsPassword":"Password is required"
+                "IsPassword":"Password is required",
+                "WrongMailPassword":"Mail or password is wrong. Please try again"
             }
         },
         "SignUp":{
@@ -81,11 +85,40 @@
         "ShareBox":{
             "WhatRUThink":"What are you thinking?",
             "Share":"Share",
-            "AddPhoto":"Add Photo"
+            "AddPhoto":"Add Photo",
+            "InfoBeforeShare":"You can check your post before share",
+            "SuccessSharing":"You shared a post successfully",
+            "ErrorSharing":"Error encountered while sharing post",
+            "AddMedia":"You have not added any media. Please add an image or a video"
         },
         "MainCenter":{
             "Like":"Like",
-            "Comment":"Comment"
+            "Comment":"Comment",
+            "Comments":"Comments",
+            "YourComment":"Your Comment",
+            "ShowMore":"Show More Post",
+            "NoLeftShared":"Congragulations. You Checked All Posts"
+        },
+        "PreviewPostDialog":{
+            "LastVersion":"Last Version of Your Post",
+            "ApprovePost":"Do You Approve Your Post?",
+            "Day":"1 Day"
+        }
+    },
+    "Pipe":{
+        "CalculateDateDiffPipe":{
+            "Second":"{0} Second Ago",
+            "Minute":"{0} Minute Ago",
+            "Hour":"{0} Hour Ago",
+            "Day":"{0} Day Ago",
+            "Month":"{0} Month Ago",
+            "Year":"{0} Year Ago",
+            "Seconds":"{0} Seconds Ago",
+            "Minutes":"{0} Minutes Ago",
+            "Hours":"{0} Hours Ago",
+            "Days":"{0} Days Ago",
+            "Months":"{0} Months Ago",
+            "Years":"{0} Years Ago"
         }
     }
 }

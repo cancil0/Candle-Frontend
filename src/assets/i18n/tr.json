@@ -11,7 +11,10 @@
             "Signup": "Kayıt Ol",
             "Language":"Dil",
             "Discover":"Keşfet",
-            "Profile":"Profil"
+            "Profile":"Profil",
+            "Notifications":"Bildirimler",
+            "Messages":"Mesajlar",
+            "Options":"Seçenekler"
         },
         "Sidebar":{},
         "Dialog":{
@@ -35,7 +38,8 @@
             "Exception":{
                 "ValidMail":"Lütfen geçerli bir e-posta girin",
                 "IsMail":"E-Posta gerekli",
-                "IsPassword":"Şifre gerekli"
+                "IsPassword":"Şifre gerekli",
+                "WrongMailPassword":"E-Posta ya da şifre yanlış. Lütfen tekrar deneyiniz"
             }
         },
         "SignUp":{
@@ -80,11 +84,40 @@
         "ShareBox":{
             "WhatRUThink":"Ne Düşünüyorsun?",
             "Share":"Paylaş",
-            "AddPhoto":"Fotoğraf Ekle"
+            "AddPhoto":"Fotoğraf Ekle",
+            "InfoBeforeShare":"Paylaşmadan önce postunuzu kontrol edebilirsiniz",
+            "SuccessSharing":"Postunuzu başarılı bir şekilde paylaştınız",
+            "ErrorSharing":"Postu paylaşırken bir hata ile karşılaşıldı",
+            "AddMedia":"Fotoğraf ya da video paylaşmak zorunludur"
         },
         "MainCenter":{
             "Like":"Beğen",
-            "Comment":"Yorum Yap"
+            "Comment":"Yorum Yap",
+            "Comments":"Yorumlar",
+            "YourComment":"Yorumun",
+            "ShowMore":"Daha Fazla Post Göster",
+            "NoLeftShared":"Tebrikler, Tüm Postları Gördünüz"
+        },
+        "PreviewPostDialog":{
+            "LastVersion":"Postunuzun Son Hali",
+            "ApprovePost":"Postu Onaylıyor Musunuz?",
+            "Day":"1 Gün"
+        }
+    },
+    "Pipe":{
+        "CalculateDateDiffPipe":{
+            "Second":"{0} Saniye Önce",
+            "Minute":"{0} Dakika Önce",
+            "Hour":"{0} Saat Önce",
+            "Day":"{0} Gün Önce",
+            "Month":"{0} Ay Önce",
+            "Year":"{0} Yıl Önce",
+            "Seconds":"{0} Saniye Önce",
+            "Minutes":"{0} Dakika Önce",
+            "Hours":"{0} Saat Önce",
+            "Days":"{0} Gün Önce",
+            "Months":"{0} Ay Önce",
+            "Years":"{0} Yıl Önce"
         }
     }
     

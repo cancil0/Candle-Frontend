@@ -1,10 +1,17 @@
-<div class="textarea-container">
+<form class="textarea-container" [formGroup]="formGroup">
     <mat-form-field appearance="outline">  
         <mat-label>{{'Main.ShareBox.WhatRUThink' | translate}}</mat-label>
-        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="5" cd maxlength="250"></textarea>
-        <button type="submit" mat-stroked-button color="primary">{{'Main.ShareBox.Share' | translate}}</button> 
-        <button  type="button" color="primary" mat-icon-button matTooltip="{{'Main.ShareBox.AddPhoto' | translate}}" matTooltipPosition="right">
+        <textarea matInput formControlName="content" cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="5" cd maxlength="250"></textarea>
+        <button type="button" (click)="addPost()" mat-stroked-button color="primary">{{'Main.ShareBox.Share' | translate}}</button> 
+        <button type="button" (click)="fileInput.click()" color="primary" mat-icon-button matTooltip="{{'Main.ShareBox.AddPhoto' | translate}}" matTooltipPosition="right">
             <mat-icon>add</mat-icon>
+            <input class="file-input" #fileInput type="file" (change)="onFileInput($event)" multiple accept="image/*, video/mp4"/>
         </button>
+        <div *ngFor="let item of file">
+            <span>{{item.name}}</span>
+        </div>
+        <button *ngIf="file.length > 0" mat-icon-button (click)="clear()" mat-icon-button color="primary" matTooltip="Clear" matTooltipPosition="right">
+            <mat-icon>clear</mat-icon>
+        </button> 
     </mat-form-field>
-</div>
+</form>

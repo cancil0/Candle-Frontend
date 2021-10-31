@@ -11,6 +11,8 @@ import { DiscoverComponent } from './discover/discover.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ShareBoxComponent } from './share-box/share-box.component';
 import { LoginGuard } from 'src/app/common/guard/loginGuard';
+import { PreviewpostDialogComponent } from './previewpost-dialog/previewpost-dialog.component';
+import { CalculateDateDiffPipe } from 'src/app/pipes/calculatedatediff.pipe';
 
 
 const routes: Routes = [
@@ -26,7 +28,9 @@ const routes: Routes = [
     MainLeftComponent,
     DiscoverComponent,
     ProfileComponent,
-    ShareBoxComponent
+    ShareBoxComponent,
+    PreviewpostDialogComponent,
+    CalculateDateDiffPipe
   ],
   imports: [
       RouterModule.forChild(routes),

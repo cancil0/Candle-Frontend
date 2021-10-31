@@ -10,16 +10,22 @@
     margin-left: 16px;
 }
 
-.chooseLang{
-    font-size: 14px;
-    margin-top: 20px;
-    border-bottom: 0ch !important;
-}
-
 .title:hover{
     cursor: pointer;
 }
 
 .navbar{
     width: 100%;
+}
+
+.mat-icon-button{
+    margin-right: 1%;
+}
+
+.mat-form-field{
+    margin-right: 1%;
+}
+
+.mat-menu-submenu-icon.ng-star-inserted{
+    display: none !important;
 }

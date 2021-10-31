@@ -1,9 +1,15 @@
 .div-center{
     width: 100%;
-    text-align:center;
+    text-align:center; 
+}
+
+.div-center-header{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    width: 50%;
+    margin-left: 25%;
 }
 
 .mat-divider{
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 20%;
+    margin-right: 20%;
 }

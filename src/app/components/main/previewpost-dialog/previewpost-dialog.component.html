@@ -1,0 +1,34 @@
+<span><p>{{'Main.PreviewPostDialog.LastVersion' | translate}}</p></span>
+<br>
+<mat-card role="group" class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar routerLink="/profile" class="example-header-image"></div>
+      <mat-card-title routerLink="/profile"><a>{{data.userName}}</a></mat-card-title>
+      <mat-card-subtitle>{{'Main.PreviewPostDialog.Day' | translate}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{data.imgURL}}">
+    <mat-card-content>
+      <p>
+        <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
+          <mat-chip *ngFor="let item of data.tags">
+             {{item.tagName}}
+          </mat-chip>
+        </mat-chip-list>
+      </p>
+      <p>{{data.content}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="example-flex-container">
+        <button mat-icon-button isabled="true">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button disabled="true">
+          <mat-icon>comment</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+</mat-card>
+<br>
+<span><p>{{'Main.PreviewPostDialog.ApprovePost' | translate}}</p></span>
+<button class="mat-raised-button" [mat-dialog-close]="false">{{'Basic.Dialog.No' | translate}}</button>
+<button class="mat-raised-button mat-primary" [mat-dialog-close]="true">{{'Basic.Dialog.Yes' | translate}}</button>

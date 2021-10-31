@@ -20,6 +20,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ErrorStateMatcher, MatNativeDateModule, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
@@ -52,7 +53,8 @@ const _matModules = [
   MatStepperModule,
   MatDialogModule,
   MatMenuModule,
-  MatCardModule
+  MatCardModule,
+  MatExpansionModule
 ]
 
 @NgModule({
