@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/localStorageService/local-storage.service';
 import { UserService } from 'src/app/services/userService/user.service';
 
 @Component({
@@ -19,10 +20,11 @@ export class NavbarComponent implements OnInit {
   ];
 
   constructor(private router:Router,
-              private userService:UserService) { }
+              private userService:UserService,
+              private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('token') || '';
+    this.token = this.localStorageService.token;
     if(this.token !== ''){
       this.isLogin = true;
       this.userNameSurName = this.userService.userNameSurname;
@@ -30,19 +32,20 @@ export class NavbarComponent implements OnInit {
   }
   
   selectLang(value: any) {
-    if (value === localStorage.getItem('lang'))
+    if (value === this.localStorageService.language)
       return
 
-    localStorage.setItem('lang', value);
-    window.location.reload();
-  }
-
-  logOut(){
-    localStorage.removeItem('token');
-    this.router.navigateByUrl('/login').then(() => {
+    this.localStorageService.setLanguage(value).then(()=>{
       window.location.reload();
     });
     
+  }
+
+  logOut(){
+    this.localStorageService.removeToken();
+    this.router.navigateByUrl('/login')
+    window.location.reload();
+
   }
 
 }

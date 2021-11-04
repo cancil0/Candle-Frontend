@@ -4,8 +4,14 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:5001/'
+  apiUrl: 'https://localhost:5001/',
+  privateTokenKey:'asud7eju39vkflphpoycfcs947as..215!!jhsnzzxsfcvfdghsadmcoiasdlkbmfdb45'
 };
+
+/*
+  PrivateTokenKey checks what token is valid or not. You can find same key in Candle-Backend/CandleWebApi/appsettings.json
+*/
+
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -6,23 +6,21 @@ import { Injectable } from '@angular/core';
 export class LocalStorageService {
 
   token: string = '';
-  language: string = localStorage.getItem('lang') || '';
+  language: string = '';
   
-  constructor() { 
-    this.setLanguage('tr');
-  }
+  constructor() {}
 
-  setToken(tokenData:string) {
+  async setToken(tokenData:string) {
     localStorage.setItem('token', tokenData);
     this.token = tokenData;
   }
 
-  removeToken(){
+  async removeToken(){
     localStorage.removeItem('token');
     this.token = '';
   }
 
-  setLanguage(langCode:string) {
+  async setLanguage(langCode:string) {
     if(this.language === langCode)
       return;
 

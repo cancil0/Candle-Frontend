@@ -4,7 +4,9 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserLoginDto } from 'src/app/models/login/userLoginDto.model';
 import { DialogService } from 'src/app/services/dialogService/dialog.service';
+import { LocalStorageService } from 'src/app/services/localStorageService/local-storage.service';
 import { LoginService } from 'src/app/services/loginService/login.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -24,13 +26,15 @@ export class LoginComponent implements OnInit {
     email:'',
     password:'',
     mobilePhone:'', 
-    userName:''
+    userName:'',
+    privateTokenKey :''
   };
 
   constructor(private router: Router,
               private loginService:LoginService,
               private route: ActivatedRoute,
-              private dialogService:DialogService) { }
+              private dialogService:DialogService,
+              private localStorageService:LocalStorageService) { }
 
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -41,11 +45,12 @@ export class LoginComponent implements OnInit {
       email:this.formGroup.controls['email'].value,
       password:this.formGroup.controls['password'].value,
       mobilePhone:'',
-      userName:''
+      userName:'',
+      privateTokenKey :environment.privateTokenKey
     }
     this.loginService.login(this.userLoginDto).subscribe(res =>{
       if(res.isSuccess){
-        localStorage.setItem("token", res.data);
+        this.localStorageService.setToken(res.data);
         this.router.navigate(['/main']).then(()=>{
           window.location.reload();
         });

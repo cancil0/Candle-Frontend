@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { LocalStorageService } from './services/localStorageService/local-storage.service';
 import { UserService } from './services/userService/user.service';
 
 @Component({
@@ -16,9 +17,10 @@ export class AppComponent {
   dateNow:Date = new Date();
   constructor(translate: TranslateService,
               private router:Router,
-              private userService: UserService) {
-      this.token = localStorage.getItem('token') || '';
+              private userService: UserService,
+              private localStorageService:LocalStorageService) {
 
+      this.token = this.localStorageService.token = localStorage.getItem('token') || '';
       var diffTime = 0;
       if(this.token !== ''){
         this.decodedToken = this.decodeJwt(this.token)
@@ -35,7 +37,7 @@ export class AppComponent {
       translate.setDefaultLang('en');
 
       // the lang to use, if the lang isn't available, it will use the current loader to get them
-      this.lang = localStorage.getItem('lang') || 'en';
+      this.lang = this.localStorageService.language = localStorage.getItem('lang') || 'en';
       translate.use(this.lang);
 
       if(this.token !== '' && diffTime > 0){
@@ -43,18 +45,18 @@ export class AppComponent {
         
       }else{
         this.router.navigateByUrl('/');
-        localStorage.removeItem('token');
+        this.localStorageService.removeToken();
       }  
   }
 
   decodeJwt (token:string) {
-  var base64Url = token.split('.')[1];
-  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
 
-  return JSON.parse(jsonPayload);
+    return JSON.parse(jsonPayload);
   }
 
 }

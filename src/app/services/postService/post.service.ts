@@ -7,17 +7,22 @@ import { ResultData } from 'src/app/models/common/result/resultData.model';
 import { Observable } from 'rxjs';
 import { Result } from 'src/app/models/common/result/result.model';
 import { GetPostByUserNameDto } from 'src/app/models/user/getPostByUserNameDto.model';
+import { LocalStorageService } from '../localStorageService/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
+  token:string = this.localStorageService.token
+
   options = {
     headers : new HttpHeaders()
               .set('Content-Type', 'application/json')
+              .set('Authorization', `Bearer ${this.token}`)
   }
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,
+              private localStorageService:LocalStorageService) { }
 
   getById(id:string):Observable<ResultData<Post>>{
     const url : string = `${environment.apiUrl}api/Post/GetPost/${id}`;

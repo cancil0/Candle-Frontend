@@ -7,18 +7,23 @@ import { ChangePasswordDto } from 'src/app/models/login/changePasswordDto.model'
 import { EnterPinForgotPassRequestDto } from 'src/app/models/login/enterPinForgotPassRequestDto.model';
 import { ForgotPasswordRequestDto } from 'src/app/models/login/forgotPasswordRequestDto.model';
 import { environment } from 'src/environments/environment';
+import { LocalStorageService } from '../localStorageService/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ForgotPasswordService {
 
+  token:string = this.localStorageService.token;
+  
   options = {
     headers : new HttpHeaders()
               .set('Content-Type', 'application/json')
+              .set('Authorization', `Bearer ${this.token}`)
   }
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,
+              private localStorageService:LocalStorageService) { }
 
   generatePinForgotPassword(forgotPasswordRequestDto:ForgotPasswordRequestDto):Observable<ResultData<string>>{
     const url : string = `${environment.apiUrl}api/Login/GeneratePinForgotPassword`;

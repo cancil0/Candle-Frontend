@@ -29,3 +29,20 @@
 .mat-menu-submenu-icon.ng-star-inserted{
     display: none !important;
 }
+
+img.flags{
+    width: 17px;
+    height: 17px;
+    margin:0px
+}
+
+.div.mat-line.message{
+    text-align: left;
+    font-size: 10px;
+}
+
+.div.mat-line.messageSender{
+    text-align: left;
+    font-size: 15px;
+    font: bold;
+}

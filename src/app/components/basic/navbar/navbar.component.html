@@ -5,17 +5,43 @@
     <a mat-button routerLink="/profile" *ngIf="isLogin">{{'Basic.Navbar.Profile' | translate}}</a>
     <a mat-button routerLink="/discover" *ngIf="isLogin">{{'Basic.Navbar.Discover' | translate}}</a>
     <span class="example-spacer"></span>
-    <button type="button" *ngIf="isLogin"  matBadge="2" [matBadgeHidden]="true"  matBadgeColor="warn" mat-icon-button matTooltip="{{'Basic.Navbar.Messages' | translate}}">
+    <button mat-button [matMenuTriggerFor]="messageMenu" *ngIf="isLogin"  matBadge="2" [matBadgeHidden]="true"  matBadgeColor="warn" mat-icon-button matTooltip="{{'Basic.Navbar.Messages' | translate}}">
       <mat-icon> message</mat-icon>
     </button>
-    <button type="button" *ngIf="isLogin"  matBadge="4" [matBadgeHidden]="true"  matBadgeColor="warn" mat-icon-button matTooltip="{{'Basic.Navbar.Notifications' | translate}}">
+    <mat-menu #messageMenu="matMenu" [hasBackdrop]="true" xPosition="before">
+      <mat-list role="list">
+        <div mat-subheader>Messages</div>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+          <div mat-line class="messageSender">y.emre</div>
+          <div mat-line class='message'>Message 1</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+          <div mat-line class="messageSender">john.cena</div>
+          <div mat-line class='message'>Message 2</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+          <div mat-line class="messageSender"><span>cr7</span></div>
+          <div mat-line class='message'>Message 3</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="notificationMenu" *ngIf="isLogin"  matBadge="4" [matBadgeHidden]="true"  matBadgeColor="warn" mat-icon-button matTooltip="{{'Basic.Navbar.Notifications' | translate}}">
       <mat-icon *ngIf="false">notifications_none</mat-icon>
       <mat-icon *ngIf="true">notifications</mat-icon>
     </button>
-
+    <mat-menu #notificationMenu="matMenu" [hasBackdrop]="true" xPosition="before">
+      <mat-list role="list">
+        <mat-list-item role="listitem">Notification 1</mat-list-item>
+        <mat-list-item role="listitem">Notification 2</mat-list-item>
+        <mat-list-item role="listitem">Notification 3</mat-list-item>
+      </mat-list>
+    </mat-menu>
     <button mat-button [matMenuTriggerFor]="loginMenu" *ngIf="isLogin">
       <span>{{userNameSurName}}</span>
-      <mat-icon>keyboard_arrow_down</mat-icon>
+      <mat-icon inline="true">keyboard_arrow_down</mat-icon>
     </button>
     <mat-menu #loginMenu="matMenu" [hasBackdrop]="true">
       <button mat-menu-item [matMenuTriggerFor]="langua">
@@ -29,7 +55,11 @@
       </button>
     </mat-menu>
     <mat-menu #langua="matMenu" xPosition="before"> 
-      <button mat-menu-item *ngFor="let lang of languages" (click)="selectLang(lang.code)">{{ lang.description }}</button>
+      <button mat-menu-item *ngFor="let lang of languages" (click)="selectLang(lang.code)">
+        <img class="flags" src="../../../../assets/flags/{{lang.code}}.png"/>
+        {{ lang.description }}
+      </button>
+      
     </mat-menu>
     <a mat-button routerLink="login/signup" *ngIf="!isLogin">{{'Basic.Navbar.Signup' | translate}}</a>
     <a mat-button routerLink="login" *ngIf="!isLogin">{{'Basic.Navbar.Login' | translate}}</a>

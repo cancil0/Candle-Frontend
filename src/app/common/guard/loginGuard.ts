@@ -1,12 +1,14 @@
 import {  CanActivate,  ActivatedRouteSnapshot,  RouterStateSnapshot,  Router} from "@angular/router";
 import { Injectable } from "@angular/core";
+import { LocalStorageService } from "src/app/services/localStorageService/local-storage.service";
 
 @Injectable()
 export class LoginGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private localStorageService: LocalStorageService) {}
 
   canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): boolean {
-    let token = localStorage.getItem('token') || '';
+    let token = this.localStorageService.token;
     if (token !== '') 
       return true;
 

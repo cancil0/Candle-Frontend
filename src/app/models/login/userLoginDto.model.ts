@@ -3,4 +3,5 @@ export class UserLoginDto{
     mobilePhone:string = '';
     userName:string = '';
     password:string = '';
+    privateTokenKey:string = '';
 }
