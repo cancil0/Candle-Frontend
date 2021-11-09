@@ -13,6 +13,7 @@ import { ShareBoxComponent } from './share-box/share-box.component';
 import { LoginGuard } from 'src/app/common/guard/loginGuard';
 import { PreviewpostDialogComponent } from './previewpost-dialog/previewpost-dialog.component';
 import { CalculateDateDiffPipe } from 'src/app/pipes/calculatedatediff.pipe';
+import { MainRightComponent } from './main-right/main-right.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
     ProfileComponent,
     ShareBoxComponent,
     PreviewpostDialogComponent,
-    CalculateDateDiffPipe
+    CalculateDateDiffPipe,
+    MainRightComponent
   ],
   imports: [
       RouterModule.forChild(routes),

@@ -1,0 +1,127 @@
+<div class="div-center">
+  <div class="div-center-header">
+    <div class="header-isloading">
+      <mat-spinner  [diameter]="125" *ngIf="isLoading"></mat-spinner>
+    </div>
+    <div class="grid-container" *ngIf="!isLoading">
+      <div class="grid-item">
+        <img class="profile-photo" src="../../../../assets/defaultProfilePhoto/img_avatar_man.png" alt="Avatar">
+        <div class="bottom-photo">{{userNameSurname}}</div>
+      </div>
+      <div class="grid-item">
+        <div class="bold-text">{{getProfileCountDto.post}}</div>
+        <div class="bottom-photo">{{'Main.Profile.Post' | translate}}</div>
+      </div>
+      <div class="grid-item">
+        <div class="bold-text">{{getProfileCountDto.following}}</div>
+        <div class="bottom-photo">{{'Main.Profile.Following' | translate}}</div>
+      </div>
+      <div class="grid-item">
+        <div class="bold-text">{{getProfileCountDto.follower}}</div>
+        <div class="bottom-photo">{{'Main.Profile.Follower' | translate}}</div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="text-center">
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab>
+          <mat-progress-bar mode="indeterminate" *ngIf="isLoading && !isLastRequest"></mat-progress-bar>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">account_box</mat-icon>
+            {{'Main.Profile.Photos' | translate}}
+          </ng-template>
+          <div fxLayout="row wrap" fxLayoutGap="16px" grid>
+            <div fxFlex="25%">
+              <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let post of posts; let i=index">
+                <mat-card role="group" class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar routerLink="/profile" class="example-header-image"></div>
+                    <mat-card-title routerLink="/profile"><a>{{post.userName}}</a></mat-card-title>
+                    <mat-card-subtitle>{{ post.createTime | calculateDateDiff }}</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image *ngFor="let media of post.medias;" src="{{media.caption}}">
+                  <mat-card-content>
+                    <p>
+                      <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
+                        <mat-chip *ngFor="let item of post.tags">
+                          {{item.tagName}}
+                        </mat-chip>
+                      </mat-chip-list>
+                    </p>
+                    <p>{{post.content}}</p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <div class="example-flex-container">
+                      <button mat-icon-button [color]="isLike ? 'warn' : ''" (click)="isLike = !isLike"
+                        matTooltip="{{'Main.MainCenter.Like' | translate}}">
+                        <mat-icon>favorite</mat-icon>
+                      </button>
+                      <button mat-icon-button [name]="post.id" (click)="isAddComent = !isAddComent"
+                        matTooltip="{{'Main.MainCenter.Comment' | translate}}">
+                        <mat-icon>comment</mat-icon>
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                  <mat-card-footer>
+                    <div class="textarea-container" *ngIf="isAddComent">
+                      <mat-form-field appearance="outline">
+                        <mat-label>{{'Main.MainCenter.YourComment' | translate}}</mat-label>
+                        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="4" cd
+                          maxlength="500"></textarea>
+                      </mat-form-field>
+                      <button type="button" color="primary" mat-icon-button
+                        matTooltip="{{'Main.MainCenter.Comment' | translate}}" matTooltipPosition="right">
+                        <mat-icon>add</mat-icon>
+                      </button>
+                    </div>
+                    <mat-expansion-panel-header id="{{post.id}}">
+                      {{'Main.MainCenter.Comments' | translate}}
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent>
+                      <mat-list role="listitem" *ngIf="!isAddComent">
+                        <mat-list-item role="comments" *ngFor="let comment of post.comments">
+                          <div class="commentusername">
+                            {{comment.userName}}
+                          </div>
+                          <div class="commenttext">
+                            {{comment.commentText}}
+                          </div>
+                          <mat-divider></mat-divider>
+                        </mat-list-item>
+                      </mat-list>
+                    </ng-template>
+                  </mat-card-footer>
+                </mat-card>
+              </div>
+              <div class="load-more">
+                <button mat-icon-button (click)="loadMore()" *ngIf="!isLastRequest && !isLoading"
+                  matTooltip="{{'Main.MainCenter.Comment' | translate}}">
+                  {{'Main.MainCenter.ShowMore' | translate}}
+                  <mat-icon>expand_more</mat-icon>
+                </button>
+                <footer *ngIf="isLastRequest">
+                  <span>{{'Main.MainCenter.NoLeftShared' | translate}}</span>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">assignment_ind</mat-icon>
+            {{'Main.Profile.Labels' | translate}}
+          </ng-template>
+          TAB 2
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">location_on</mat-icon>
+            {{'Main.Profile.Locations' | translate}}
+          </ng-template>
+          İstanbul
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+
+  </div>
+</div>

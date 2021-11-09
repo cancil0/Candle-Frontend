@@ -102,6 +102,17 @@
             "LastVersion":"Postunuzun Son Hali",
             "ApprovePost":"Postu Onaylıyor Musunuz?",
             "Day":"1 Gün"
+        },
+        "Profile":{
+            "Following":"Takip Edilenler",
+            "Follower":"Takip Edenler",
+            "Post":"Gönderi",
+            "Photos":"Fotoğraflar",
+            "Labels":"Etiketler",
+            "Locations":"Konumlar",
+            "RemovePost":"Gönderiyi Sil",
+            "UpdatePost":"Gönderiyi Güncelle",
+            "ChanceProfilePhoto":"Profil Fotoğrafını Değiştir"
         }
     },
     "Pipe":{

@@ -21,6 +21,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ErrorStateMatcher, MatNativeDateModule, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
@@ -54,7 +57,10 @@ const _matModules = [
   MatDialogModule,
   MatMenuModule,
   MatCardModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatTabsModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule
 ]
 
 @NgModule({

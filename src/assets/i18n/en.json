@@ -103,6 +103,17 @@
             "LastVersion":"Last Version of Your Post",
             "ApprovePost":"Do You Approve Your Post?",
             "Day":"1 Day"
+        },
+        "Profile":{
+            "Following":"Following",
+            "Follower":"Follower",
+            "Post":"Post",
+            "Photos":"Photos",
+            "Labels":"Labels",
+            "Locations":"Locations",
+            "RemovePost":"Remove Post",
+            "UpdatePost":"Update Post",
+            "ChanceProfilePhoto":"Chance Profile Photo"
         }
     },
     "Pipe":{

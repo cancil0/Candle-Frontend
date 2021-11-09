@@ -2,19 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ResultData } from 'src/app/models/common/result/resultData.model';
-import { UserLoginDto } from 'src/app/models/login/userLoginDto.model';
+import { GetProfileCountDto } from 'src/app/models/user/getProfileCountDto.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class ProfileService {
 
   constructor(private http : HttpClient) { }
 
-  login(userLoginDto:UserLoginDto):Observable<ResultData<string>>{
-    const url : string = `${environment.apiUrl}api/Login/Login`;
-    return this.http.post<ResultData<string>>(url,userLoginDto);
+  getProfileCounts(userName:string):Observable<ResultData<GetProfileCountDto>>{
+    const url : string = `${environment.apiUrl}api/Profile/GetProfileCounts/${userName}`;
+    return this.http.get<ResultData<GetProfileCountDto>>(url);
   }
-
 }

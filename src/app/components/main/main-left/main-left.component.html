@@ -1,0 +1,11 @@
+<p class="header-text">Dünyayı Keşfet</p>
+<mat-divider></mat-divider>
+<mat-grid-list cols="4" rowHeight="48px">
+    <mat-grid-tile *ngFor="let item of Tags">
+        <div class="flexc">
+            <mat-chip>
+                {{item.tagName}}
+            </mat-chip>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

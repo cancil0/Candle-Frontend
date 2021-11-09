@@ -16,7 +16,6 @@ export class MainCenterComponent implements OnInit {
 
   isLike:boolean = false;
   posts : Post[] = [];
-  dateNow:Date = new Date();
   isAddComent:boolean = false;
   scrollCount:number = 0;
   isLastRequest:boolean = false;
@@ -36,7 +35,7 @@ export class MainCenterComponent implements OnInit {
   getAllPosts(){
     this.getPostByUserNameDto.userName = this.userService.userName;
     this.getPostByUserNameDto.scrollCount = this.scrollCount;
-    this.postService.getByUserName(this.getPostByUserNameDto).subscribe((res) => {
+    this.postService.getMainPost(this.getPostByUserNameDto).subscribe((res) => {
       if(res.isSuccess){
         if(res.data.length > 0){
           this.scrollCount++;
