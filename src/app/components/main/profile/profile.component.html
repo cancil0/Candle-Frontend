@@ -5,20 +5,22 @@
     </div>
     <div class="grid-container" *ngIf="!isLoading">
       <div class="grid-item">
-        <img class="profile-photo" src="../../../../assets/defaultProfilePhoto/img_avatar_man.png" alt="Avatar">
+        <img [hidden]="imgURL != null" class="profile-photo" src="{{getProfileInfoDto.profilePhotoPath}}" alt="Avatar" (click)="fileInput.click()">
+        <img class="profile-photo" [hidden]="imgURL == null"  src="{{imgURL}}" alt="Avatar" (click)="fileInput.click()">
+          <input hidden class="file-input" #fileInput type="file" (change)="changeProfilePhoto($event)" accept="image/*"/>
         <div class="bottom-photo">{{userNameSurname}}</div>
       </div>
       <div class="grid-item">
-        <div class="bold-text">{{getProfileCountDto.post}}</div>
+        <div class="bold-text">{{getProfileInfoDto.post}}</div>
         <div class="bottom-photo">{{'Main.Profile.Post' | translate}}</div>
       </div>
       <div class="grid-item">
-        <div class="bold-text">{{getProfileCountDto.following}}</div>
-        <div class="bottom-photo">{{'Main.Profile.Following' | translate}}</div>
+        <div class="bold-text clickable" (click)="followingList()">{{getProfileInfoDto.following}}</div>
+        <div class="bottom-photo clickable" (click)="followingList()">{{'Main.Profile.Following' | translate}}</div>
       </div>
       <div class="grid-item">
-        <div class="bold-text">{{getProfileCountDto.follower}}</div>
-        <div class="bottom-photo">{{'Main.Profile.Follower' | translate}}</div>
+        <div class="bold-text clickable" (click)="followerList()">{{getProfileInfoDto.follower}}</div>
+        <div class="bottom-photo clickable" (click)="followerList()">{{'Main.Profile.Follower' | translate}}</div>
       </div>
     </div>
     <mat-divider></mat-divider>
@@ -38,6 +40,20 @@
                     <div mat-card-avatar routerLink="/profile" class="example-header-image"></div>
                     <mat-card-title routerLink="/profile"><a>{{post.userName}}</a></mat-card-title>
                     <mat-card-subtitle>{{ post.createTime | calculateDateDiff }}</mat-card-subtitle>
+                    <span class="example-spacer"></span>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item *ngIf="false">
+                        <mat-icon>format_paint</mat-icon>
+                        <span>{{'Main.Profile.PostUpdate' | translate}}</span>
+                      </button>
+                      <button mat-menu-item (click)="deletePost(post.id)">
+                        <mat-icon>delete_forever</mat-icon>
+                        <span>{{'Main.Profile.PostDelete' | translate}}</span>
+                      </button>
+                    </mat-menu>
                   </mat-card-header>
                   <img mat-card-image *ngFor="let media of post.medias;" src="{{media.caption}}">
                   <mat-card-content>

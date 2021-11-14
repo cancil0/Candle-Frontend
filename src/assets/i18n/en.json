@@ -113,7 +113,27 @@
             "Locations":"Locations",
             "RemovePost":"Remove Post",
             "UpdatePost":"Update Post",
-            "ChanceProfilePhoto":"Chance Profile Photo"
+            "ChanceProfilePhoto":"Chance Profile Photo",
+            "PostUpdate":"Update",
+            "PostDelete":"Delete",
+            "IsPostDeleted":"Post will deleted. Are you sure?",
+            "PostIsDeleted":"Post is deleted"
+        },
+        "ShowFollowingListDialog":{
+            "Following":"Followings",
+            "Follower":"Followers",
+            "Search":"Search",
+            "UserName":"User Name",
+            "StopFollowing":"Stop Following",
+            "Remove":"Remove",
+            "NoData":"No one found matching your search criteria.",
+            "StopFollowingUser":"{0} is stopped following. Are you sure?",
+            "RemoveFollowerUser":"{0} will not follow you. Are you sure?",
+            "Exception":{
+                "ProblemOccured":"A problem has been encountered. Please try again later",
+                "NoBodyFollowing":"Nobody is here right now",
+                "InternalServerError":"An error has been encountered. \n Please try again later"
+            }
         }
     },
     "Pipe":{

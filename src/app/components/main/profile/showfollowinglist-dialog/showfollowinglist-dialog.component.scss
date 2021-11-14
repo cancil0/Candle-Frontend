@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+}
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+  
+.no {
+width: 32px;
+border-right: 1px solid currentColor;
+text-align: center;
+}
+
+.followerName {
+padding-left: 16px;
+font-size: 20px;
+}
+
+.button-notfollow {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.mat-table {
+    overflow: auto;
+}
+
+.th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type{
+    text-align: right;
+}
+
+.noBodyFollowing{
+    text-align: center;
+}
+
+.error-text{
+    text-align: center;
+    white-space: pre-wrap;
+}

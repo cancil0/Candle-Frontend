@@ -112,7 +112,27 @@
             "Locations":"Konumlar",
             "RemovePost":"Gönderiyi Sil",
             "UpdatePost":"Gönderiyi Güncelle",
-            "ChanceProfilePhoto":"Profil Fotoğrafını Değiştir"
+            "ChanceProfilePhoto":"Profil Fotoğrafını Değiştir",
+            "PostUpdate":"Güncelle",
+            "PostDelete":"Sil",
+            "IsPostDeleted":"Gönderi silinecektir. Emin misiniz?",
+            "PostIsDeleted":"Gönderi silindi"
+        },
+        "ShowFollowingListDialog":{
+            "Following":"Takip Edilenler",
+            "Follower":"Takip Edenler",
+            "Search":"Ara",
+            "UserName":"Kullanıcı Adı",
+            "StopFollowing":"Takibi Bırak",
+            "Remove":"Kaldır",
+            "NoData":"Aradığınız kriterlere uygun kimse bulunamadı",
+            "StopFollowingUser":"{0} takipten çıkılacaktır. Onaylıyor musunuz?",
+            "RemoveFollowerUser":"{0} artık sizi takip edemeyektir. Onaylıyor musunuz?", 
+            "Exception":{
+                "ProblemOccured":"Bir sorunla karşılaşıldı. Lütfen daha sonra tekrar deneyiniz",
+                "NoBodyFollowing":"Şimdilik burada kimse yok",
+                "InternalServerError":"Bir hata ile karşılaşıldı. \n Lütfen daha sonra tekrar deneyiniz"
+            }
         }
     },
     "Pipe":{

@@ -15,7 +15,6 @@ export class AuthInterceptor implements HttpInterceptor {
         if (this.token) {
             request = request.clone({
                 setHeaders: {
-                'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': 'true',
                 'Authorization': `Bearer ${this.token}`
@@ -29,7 +28,7 @@ export class AuthInterceptor implements HttpInterceptor {
         (err: any) => {
         if (err instanceof HttpErrorResponse) {
             if (err.status !== 401) {
-            return;
+            //return;
             }
         }
         }));

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class UserService {
   email: string = '';
   userId: string = '';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   userNameChange(data: string) {
     this.userName = data
@@ -26,6 +27,14 @@ export class UserService {
 
   userIdChange(data: string) {
     this.userId = data
+  }
+
+  isLoggedIn(): boolean{
+    if(this.userName !== '')
+      return true;
+
+    this.router.navigate(['/']);
+    return false;
   }
 
 }

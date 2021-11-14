@@ -8,4 +8,5 @@ export class SignupRequestDto{
     mobilePhone:string = '';
     password:string = '';
     userName:string = '';
+    gender:string = '';
 }

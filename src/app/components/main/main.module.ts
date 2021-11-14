@@ -14,6 +14,7 @@ import { LoginGuard } from 'src/app/common/guard/loginGuard';
 import { PreviewpostDialogComponent } from './previewpost-dialog/previewpost-dialog.component';
 import { CalculateDateDiffPipe } from 'src/app/pipes/calculatedatediff.pipe';
 import { MainRightComponent } from './main-right/main-right.component';
+import { ShowFollowingListDialogComponent } from './profile/showfollowinglist-dialog/showfollowinglist-dialog.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
     ShareBoxComponent,
     PreviewpostDialogComponent,
     CalculateDateDiffPipe,
-    MainRightComponent
+    MainRightComponent,
+    ShowFollowingListDialogComponent
   ],
   imports: [
       RouterModule.forChild(routes),

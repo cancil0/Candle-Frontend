@@ -51,7 +51,7 @@ export class MainCenterComponent implements OnInit {
   }
 
   addComment(){
-
+ 
   }
 
   loadMore(){

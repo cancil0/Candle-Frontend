@@ -102,6 +102,12 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-radio-group aria-label="Select an option" formControlName="gender" required>
+        <mat-radio-button value="M">Erkek</mat-radio-button>
+        <mat-radio-button value="F">Kadın</mat-radio-button>
+      </mat-radio-group>
+    </mat-grid-tile>
   </mat-grid-list>
   <mat-grid-list cols="1" rowHeight="75px">
     <mat-grid-tile>
