@@ -33,7 +33,9 @@
       <button mat-button color="primary" type="button" routerLink="/login/forgot-password">{{ 'Login.Login.ForgotPass' | translate }}</button>  
     </mat-grid-tile>
     <mat-grid-tile>
-      <button  mat-flat-button color="primary" type="submit">{{ 'Login.Login.Login' | translate }}</button>
+      <button  mat-flat-button color="primary" type="submit" [disabled]="isSendClicked">
+          {{ 'Login.Login.Login' | translate }}
+      </button>
     </mat-grid-tile>
   </mat-grid-list>
 </form>

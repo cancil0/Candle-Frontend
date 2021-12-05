@@ -3,8 +3,8 @@
     <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let post of posts; let i=index">
       <mat-card role="group" class="example-card">
         <mat-card-header>
-          <div mat-card-avatar routerLink="/profile" class="example-header-image"></div>
-          <mat-card-title routerLink="/profile"><a>{{post.userName}}</a></mat-card-title>
+          <div mat-card-avatar [routerLink]="getRouter(post.userName)" class="example-header-image" [style.background-image]="'url(' + post.profilePhotoPath + ')'"></div>
+          <mat-card-title [routerLink]="getRouter(post.userName)"><a>{{post.userName}}</a></mat-card-title>
           <mat-card-subtitle>{{ post.createTime | calculateDateDiff }}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image *ngFor="let media of post.medias;" src="{{media.caption}}">
@@ -20,43 +20,53 @@
         </mat-card-content>
         <mat-card-actions>
           <div class="example-flex-container">
-            <button mat-icon-button [color]="isLike ? 'warn' : ''" (click)="isLike = !isLike"
-              matTooltip="{{'Main.MainCenter.Like' | translate}}">
+            <button mat-icon-button #likeButton (click)="likePost(likeButton, post.id)"
+              matTooltip="{{'Main.MainCenter.Like' | translate}}" [color]="isLiked(post.id) ? 'warn' : undefined">
               <mat-icon>favorite</mat-icon>
             </button>
-            <button mat-icon-button [name]="post.id" (click)="isAddComent = !isAddComent" matTooltip="{{'Main.MainCenter.Comment' | translate}}">
+            <button mat-icon-button (click)="expandComment(expansionPanel)"
+              matTooltip="{{'Main.MainCenter.Comment' | translate}}">
               <mat-icon>comment</mat-icon>
             </button>
+            <h5 class="like-count" *ngIf="post.likes.length > 1">
+              <span class="clickable" (click)="getRouter(post.likes[0].userName)">{{post.likes[0].userName}} </span> 
+              <span class="clickable"> {{'Main.Profile.And' | translate}} {{post.likes.length -1 }} {{'Main.Profile.OthersLiked' | translate}}</span>
+            </h5>
+            <h5 class="like-count" *ngIf="post.likes.length == 1">
+              <span class="clickable" (click)="getRouter(post.likes[0].userName)">{{post.likes[0].userName}}</span> {{'Main.Profile.Liked' | translate}}
+            </h5>
           </div>
         </mat-card-actions>
         <mat-card-footer>
-          <div class="textarea-container" *ngIf="isAddComent">
-            <mat-form-field appearance="outline">
-              <mat-label>{{'Main.MainCenter.YourComment' | translate}}</mat-label>
-              <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="4" cd
-                maxlength="500"></textarea>
-            </mat-form-field>
-            <button type="button" color="primary" mat-icon-button matTooltip="{{'Main.MainCenter.Comment' | translate}}"
-              matTooltipPosition="right">
-              <mat-icon>add</mat-icon>
-            </button>
-          </div>
-            <mat-expansion-panel-header id="{{post.id}}">
-              {{'Main.MainCenter.Comments' | translate}}
-            </mat-expansion-panel-header>
-            <ng-template matExpansionPanelContent>
-              <mat-list role="listitem" *ngIf="!isAddComent">
-              <mat-list-item role="comments" *ngFor="let comment of post.comments">
-                <div class="commentusername">
-                  {{comment.userName}}
-                </div>
-                <div class="commenttext">
-                  {{comment.commentText}}
-                </div>
-                <mat-divider></mat-divider>
-              </mat-list-item>
-            </mat-list>
-            </ng-template>
+          <mat-accordion class="example-headers-align" hideToggle displayMode="flat">
+            <mat-expansion-panel #expansionPanel disabled="true">
+              <mat-expansion-panel-header [collapsedHeight]="'0px'" [expandedHeight]="'20px'"></mat-expansion-panel-header>
+              <div class="textarea-container">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{'Main.MainCenter.YourComment' | translate}}</mat-label>
+                  <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="4" cd
+                    maxlength="500"></textarea>
+                </mat-form-field>
+                <button type="button" color="primary" mat-icon-button
+                  matTooltip="{{'Main.MainCenter.Comment' | translate}}" matTooltipPosition="right">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+              <ng-template matExpansionPanelContent>
+                <mat-list role="listitem">
+                  <mat-list-item role="comments" *ngFor="let comment of post.comments">
+                    <div class="commentusername">
+                      {{comment.userName}}
+                    </div>
+                    <div class="commenttext">
+                      {{comment.commentText}}
+                    </div>
+                    <mat-divider></mat-divider>
+                  </mat-list-item>
+                </mat-list>
+              </ng-template>
+            </mat-expansion-panel>
+          </mat-accordion>
         </mat-card-footer>
       </mat-card>
     </div>

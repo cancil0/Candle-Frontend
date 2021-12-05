@@ -54,7 +54,7 @@ export class CalculateDateDiffPipe implements PipeTransform {
     }
 
     const diffMonths = Math.floor(diffDays / 30); 
-    if(diffMonths >= 1 && diffDays <= 12){
+    if(diffMonths >= 1 && diffMonths <= 12){
       if(diffMonths === 1){
         resource = this.translate.instant('Pipe.CalculateDateDiffPipe.Month');
         return resource.replace('{0}', diffMonths.toString());
@@ -65,7 +65,7 @@ export class CalculateDateDiffPipe implements PipeTransform {
 
     const diffYears = Math.floor(diffMonths / 12); 
     if(diffYears >= 1){
-      if(diffMonths === 1){
+      if(diffYears === 1){
         resource = this.translate.instant('Pipe.CalculateDateDiffPipe.Year');
         return resource.replace('{0}', diffYears.toString());
       }

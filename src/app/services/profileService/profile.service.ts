@@ -12,8 +12,8 @@ export class ProfileService {
 
   constructor(private http : HttpClient) { }
 
-  getProfileCounts(userName:string):Observable<ResultData<GetProfileInfoDto>>{
-    const url : string = `${environment.apiUrl}api/Profile/GetProfileCounts/${userName}`;
+  getProfileInfos(userName:string):Observable<ResultData<GetProfileInfoDto>>{
+    const url : string = `${environment.apiUrl}api/Profile/GetProfileInfos/${userName}`;
     return this.http.get<ResultData<GetProfileInfoDto>>(url);
   }
 

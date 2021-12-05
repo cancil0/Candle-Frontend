@@ -60,6 +60,8 @@ export class ForgotPasswordComponent implements OnInit {
       if(res.isSuccess){
         this.userName = res.data;
         this.openEnterPinDialog();
+      }else{
+        this.dialog.open('error','Login.ForgotPassword.Exception.UserNotFound')
       }
     });
 
@@ -70,7 +72,7 @@ export class ForgotPasswordComponent implements OnInit {
                         disableClose: true,
                         autoFocus: true,
                         maxHeight: 500,
-                        maxWidth: 300,
+                        maxWidth: 500,
                         data: {
                           userName:this.userName
                         }

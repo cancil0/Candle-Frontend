@@ -1,7 +1,10 @@
 {
     "Common":{
         "Title":"Candle",
-        "PageNotFound":"Sayfa Bulunamadı"
+        "PageNotFound":"Sayfa Bulunamadı",
+        "Exception":{
+            "Error":"Bir şeyler ters gitti. Lütfen daha sonra tekrar deneyiniz"
+        }
     },
     "Basic":{
         "Navbar":{
@@ -35,11 +38,14 @@
             "Login":"Oturum Aç",
             "SuccessLogin":"Giriş Başarılı",
             "UnSuccessfulLogin":"Giriş Başarısız",
+            "ActivateUser":"Hesap henüz aktive edilmemiş. Şuan aktive etmek ister misiniz?",
+            "UserActivated":"Hesap aktive edildi. Lütfen tekrar giriş yapın",
             "Exception":{
                 "ValidMail":"Lütfen geçerli bir e-posta girin",
                 "IsMail":"E-Posta gerekli",
                 "IsPassword":"Şifre gerekli",
-                "WrongMailPassword":"E-Posta ya da şifre yanlış. Lütfen tekrar deneyiniz"
+                "WrongMailPassword":"E-Posta ya da şifre yanlış. Lütfen tekrar deneyiniz",
+                "UserBanned":"Bu hesap kalıcı olarak askıya alınmıştır"
             }
         },
         "SignUp":{
@@ -62,21 +68,27 @@
                 "MobileNoIsNumber":"Yalnızca sayı giriniz",
                 "MailComparison":"Almak istediğiniz mail ile ikincil mail aynı olamaz",
                 "FailedSignUp":"Lütfen tüm alanları doğru bir şekilde doldurduğunuzdan emin olun",
-                "PasswordsNotMatch":"Yazdığınız şifreler eşleşmiyor"
+                "PasswordsNotMatch":"Yazdığınız şifreler eşleşmiyor",
+                "MinLength":"Şifre en az 8 hane içermelidir"
             }
         },
         "ForgotPassword":{
             "Send":"Gönder",
+            "Close":"Kapat",
             "Success":"İşlem Başarılı",
             "Error":"İşlem Başarısız",
             "Email":"E-Posta",
             "MobilePhone":"Telefon Numarası",
             "UserName":"Kullanıcı Adı",
             "EnterPin":"Pini Giriniz",
+            "EnterNewPass":"Lütfen Yeni Şifrenizi Girin",
             "SuccessChangedPassword":"Şifreniz başarıyla değiştirlmiştir",
+            "PinDirectory":"Yeni pininizi Masaütünüzde bulunan {0}-Pin.txt'nın içerisinde bulabilirsiniz",
+            "SecondLeft":"Saniye Kaldı",
             "Exception":{
                 "NotFoundWithGivenMail":"Maile bağlı bir hesap bulunamadı",
-                "EnteredWrongPin":"Yanlış pin girdiniz. Lütfen tekrar deneyin"
+                "EnteredWrongPin":"Yanlış pin girdiniz. Lütfen tekrar deneyin",
+                "UserNotFound":"Kullanıcı Bulunamadı"
             }
         }
     },
@@ -116,11 +128,21 @@
             "PostUpdate":"Güncelle",
             "PostDelete":"Sil",
             "IsPostDeleted":"Gönderi silinecektir. Emin misiniz?",
-            "PostIsDeleted":"Gönderi silindi"
+            "PostIsDeleted":"Gönderi silindi",
+            "IsPPChanged":"Profil fotoğrafınız değiştirilsin mi?",
+            "PPChanged":"Profil fotoğrafınız başarılı bir şekilde değiştirildi",
+            "And":"ve",
+            "OthersLiked":"diğer kişi beğendi",
+            "Liked":"beğendi"
         },
         "ShowFollowingListDialog":{
-            "Following":"Takip Edilenler",
+            "Followings":"Takip Edilenler",
             "Follower":"Takip Edenler",
+            "Follow":"Takip Et",
+            "Following":"Takip Ediliyor",
+            "NotFollowing":"Takip Edilmiyor",
+            "FollowingYou":"Takip Ediyor",
+            "NotFollowingYou":"Takip Etmiyor",
             "Search":"Ara",
             "UserName":"Kullanıcı Adı",
             "StopFollowing":"Takibi Bırak",

@@ -8,6 +8,7 @@ export class Post{
     userName: string = '';
     content : string = '';
     createTime: Date = new Date();
+    profilePhotoPath:string = '';
     medias : Media[] = [];
     tags : Tag[] = [];
     comments : Comment[] = [];

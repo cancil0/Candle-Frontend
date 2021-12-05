@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ChangePasswordDto } from 'src/app/models/login/changePasswordDto.model';
+import { DialogService } from 'src/app/services/dialogService/dialog.service';
 import { ForgotPasswordService } from 'src/app/services/loginService/forgotpassword.service';
 
 @Component({
@@ -27,7 +28,8 @@ export class ChangePasswordDialogComponent implements OnInit {
   
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               public dialogRef: MatDialogRef<ChangePasswordDialogComponent>,
-              private forgotPasswordService:ForgotPasswordService) { }
+              private forgotPasswordService:ForgotPasswordService,
+              private dialogService: DialogService) { }
 
   ngOnInit(): void {
   }
@@ -47,6 +49,9 @@ export class ChangePasswordDialogComponent implements OnInit {
       if(res.isSuccess){
         this.dialogRef.close(true);
       }
+    },(err) => {
+      if(err != null)
+        this.dialogService.open('error','Common.Exception.Error');
     });
   }
 }

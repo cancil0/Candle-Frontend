@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { FollowService } from './services/followService/follow.service';
 import { LocalStorageService } from './services/localStorageService/local-storage.service';
 import { UserService } from './services/userService/user.service';
 
@@ -18,7 +19,8 @@ export class AppComponent {
   constructor(translate: TranslateService,
               private router:Router,
               private userService: UserService,
-              private localStorageService:LocalStorageService) {
+              private localStorageService:LocalStorageService,
+              private followService:FollowService) {
 
       this.token = this.localStorageService.token = localStorage.getItem('token') || '';
       var diffTime = 0;
@@ -29,8 +31,17 @@ export class AppComponent {
   
         this.userService.emailChange(this.decodedToken.email);
         this.userService.userIdChange(this.decodedToken.id);
-        this.userService.userNameChange(this.decodedToken.userName);
+        this.userService.changeUserName(this.decodedToken.userName);
         this.userService.userNameSurnameChange(this.decodedToken.userNameSurname);
+        this.followService.getFollowings(this.decodedToken.userName).subscribe((res) => {
+          if(res.isSuccess){
+            this.followService.setFollowingList(res.data);
+          }});
+
+          this.followService.getFollowers(this.decodedToken.userName).subscribe((res) => {
+            if(res.isSuccess){
+              this.followService.setFollowerList(res.data);
+            }});
       }
       
       // this language will be used as a fallback when a translation isn't found in the current language
@@ -41,10 +52,12 @@ export class AppComponent {
       translate.use(this.lang);
 
       if(this.token !== '' && diffTime > 0){
-        this.router.navigateByUrl('/main');
+        this.router.navigateByUrl('/').then(() => {
+          this.router.navigate(['/main'])
+        });
         
       }else{
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/')
         this.localStorageService.removeToken();
       }  
   }

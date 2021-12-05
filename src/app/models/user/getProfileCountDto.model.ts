@@ -3,4 +3,5 @@ export class GetProfileInfoDto{
     following: number =0;
     follower: number = 0;
     profilePhotoPath: string = '';
+    userNameSurname: string = '';
 }

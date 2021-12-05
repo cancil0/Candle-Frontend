@@ -16,14 +16,14 @@
   }
   
   .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
   
   .mat-card-content{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
     text-align:left;
-    white-space: nowrap;
-    margin-bottom: -10px;
   }
   
   .mat-card{

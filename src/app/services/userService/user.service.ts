@@ -1,5 +1,9 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Result } from 'src/app/models/common/result/result.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +15,10 @@ export class UserService {
   email: string = '';
   userId: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private http : HttpClient) { }
 
-  userNameChange(data: string) {
+  changeUserName(data: string) {
     this.userName = data
   }
 
@@ -35,6 +40,15 @@ export class UserService {
 
     this.router.navigate(['/']);
     return false;
+  }
+
+  activateUser(userName:string):Observable<Result>{
+    let options = {
+      headers : new HttpHeaders()
+                .set('Content-Type', 'application/json')
+    }
+    const url : string = `${environment.apiUrl}api/User/ActivateUser?userName=${userName}`;
+    return this.http.put<Result>(url,null,options);
   }
 
 }

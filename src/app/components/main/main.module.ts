@@ -20,7 +20,8 @@ import { ShowFollowingListDialogComponent } from './profile/showfollowinglist-di
 const routes: Routes = [
   {path: 'main', component: MainComponent,canActivate: [LoginGuard]},
   {path: 'discover', component: DiscoverComponent, canActivate: [LoginGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate: [LoginGuard]}
+  {path: 'profile', component: ProfileComponent, canActivate: [LoginGuard]},
+  {path: 'profile/:userName', component: ProfileComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({

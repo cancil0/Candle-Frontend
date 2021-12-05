@@ -11,17 +11,25 @@
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="followerName">
       <th mat-header-cell *matHeaderCellDef>
-        {{this.resources.tableheader}}
+        {{tableheaderText}}
       </th>
-      <td mat-cell *matCellDef="let element">
+      <td mat-cell *matCellDef="let element" class="clickable" (click)="getRouter(element.followerName)">
         {{element.followerName}}
       </td>
     </ng-container>
     <ng-container matColumnDef="button-notfollow">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <button mat-stroked-button color="primary" (click)="removeData(element.id, element.followerName)">
-          {{this.resources.tablebutton}}
+        <button mat-stroked-button color="primary" *ngIf="data.isMyProfile" (click)="removeData(element.id, element.followerName)">
+          <mat-icon *ngIf=" isFollowOwner(element.followerName)  && data.listType === 'following'"  [matTooltip]="followingYouText">done</mat-icon>
+          <mat-icon *ngIf=" !isFollowOwner(element.followerName) && data.listType === 'following'"  [matTooltip]="notFollowingYouText">clear</mat-icon>
+          <mat-icon *ngIf=" isFollow(element.followerName)       && data.listType === 'follower'"   [matTooltip]="followingText">done</mat-icon>
+          <mat-icon *ngIf=" !isFollow(element.followerName)      && data.listType === 'follower'"   [matTooltip]="notFollowingText">clear</mat-icon>
+          {{tablebuttonText}}
+        </button>
+        <button mat-stroked-button color="primary" #matbutton (click)="follow(element.followerId, element.followerName, matbutton)" 
+        *ngIf="!data.isMyProfile && element.followerName !== userService.userName" [disabled]="isFollow(element.followerName)">
+            <span>{{isFollow(element.followerName) ? followingText : followText}}</span>
         </button>
       </td>
     </ng-container>

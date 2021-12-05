@@ -1,7 +1,10 @@
 {
     "Common":{
         "Title":"Candle",
-        "PageNotFound":"Page Not Found"
+        "PageNotFound":"Page Not Found",
+        "Exception":{
+            "Error":"Something went wrong. Please try again later"
+        }
     },
     "Basic":{
         "Navbar":{
@@ -35,11 +38,14 @@
             "Login":"Login",
             "SuccessLogin":"Login Successful",
             "UnSuccessfulLogin":"Login Failed",
+            "ActivateUser":"Account has not activated. Do you want to activate now?",
+            "UserActivated":"Account has been activated. Please login again",
             "Exception":{
                 "ValidMail":"Please enter a valid email address",
                 "IsMail":"Email is required",
                 "IsPassword":"Password is required",
-                "WrongMailPassword":"Mail or password is wrong. Please try again"
+                "WrongMailPassword":"Mail or password is wrong. Please try again",
+                "UserBanned":"Account has been permanently banned"
             }
         },
         "SignUp":{
@@ -62,7 +68,8 @@
                 "MobileNoIsNumber":"Enter only digit",
                 "MailComparison":"Mail which you want to take can not be same with secondry mail",
                 "FailedSignUp":"Please make sure all fields are properly filled",
-                "PasswordsNotMatch":"Passwords are not matched"
+                "PasswordsNotMatch":"Passwords are not matched",
+                "MinLength":"Minumum password length must be 8"
             }
         },
         "ForgotPassword":{
@@ -74,10 +81,14 @@
             "MobilePhone":"Mobile Phone",
             "UserName":"User Name",
             "EnterPin":"Enter Pin",
+            "EnterNewPass":"Please Enter New Password",
             "SuccessChangedPassword":"Your password is changed successfully",
+            "PinDirectory":"You can find your new pin in {0}-Pin.txt where is at your Desktop",
+            "SecondLeft":"Seconds Left",
             "Exception":{
                 "NotFoundWithGivenMail":"Account is not found with given mail",
-                "EnteredWrongPin":"You enter wrong pin. Please try again"
+                "EnteredWrongPin":"You enter wrong pin. Please try again",
+                "UserNotFound":"User Not Found"
             }
         }
     },
@@ -117,11 +128,21 @@
             "PostUpdate":"Update",
             "PostDelete":"Delete",
             "IsPostDeleted":"Post will deleted. Are you sure?",
-            "PostIsDeleted":"Post is deleted"
+            "PostIsDeleted":"Post is deleted",
+            "IsPPChanged":"Do you want to change your profile photo?",
+            "PPChanged":"Your profile photo is changed",
+            "And":"and",
+            "OthersLiked":"others liked",
+            "Liked":"liked"
         },
         "ShowFollowingListDialog":{
-            "Following":"Followings",
+            "Followings":"Followings",
             "Follower":"Followers",
+            "Follow":"Follow",
+            "Following":"Following",
+            "NotFollowing":"Not Following",
+            "FollowingYou":"Following You",
+            "NotFollowingYou":"Not Following You",
             "Search":"Search",
             "UserName":"User Name",
             "StopFollowing":"Stop Following",
