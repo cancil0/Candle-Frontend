@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
+import { AddCommentRequestDto } from 'src/app/models/comment/addCommentRequestDto.model';
 import { LikePostRequest } from 'src/app/models/like/likePostRequest.model';
+import { Comment } from 'src/app/models/user/comment.model';
 import { GetPostByUserNameDto } from 'src/app/models/user/getPostByUserNameDto.model';
 import { Post } from 'src/app/models/user/post.model';
+import { CommentService } from 'src/app/services/commentService/comment.service';
 import { DialogService } from 'src/app/services/dialogService/dialog.service';
 import { LikeService } from 'src/app/services/likeService/like.service';
 import { PostService } from 'src/app/services/postService/post.service';
@@ -25,6 +28,7 @@ export class MainCenterComponent implements OnInit {
   isLastRequest:boolean = false;
   getPostByUserNameDto:GetPostByUserNameDto ={
     userName:'',
+    loggedInUserName:'',
     scrollCount:0,
     takeCount:3
   }
@@ -32,10 +36,12 @@ export class MainCenterComponent implements OnInit {
     postId:'',
     userId:this.userService.userId
   }
+
   constructor(private postService : PostService,
               private dialogService : DialogService,
               private userService: UserService,
-              private likeService : LikeService) { }
+              private likeService : LikeService,
+              private commentService : CommentService) { }
 
   ngOnInit(): void {
     this.getAllPosts();
@@ -59,8 +65,46 @@ export class MainCenterComponent implements OnInit {
     });
   }
 
-  addComment(){
- 
+  addComment(postId:string,commentText:any,parentCommentId:string){
+    var addCommentRequestDto = new AddCommentRequestDto();
+    addCommentRequestDto = {
+      postId : postId,
+      userId : this.userService.userId,
+      parentCommentId : parentCommentId,
+      commentText : commentText.value
+    }
+    
+    this.commentService.addComment(addCommentRequestDto).subscribe((result) => {
+      if(result.isSuccess){
+        let post = this.posts.find(x => x.id === postId);
+        let comment = new Comment();
+        comment = {
+          commentId : result.data.commentId,
+          userName : this.userService.userName,
+          userProfilePhoto : result.data.userProfilePhoto,
+          commentText : commentText.value,
+          time : new Date()
+        }
+        post?.comments.push(comment);
+        commentText.value = '';
+      }else{
+        this.dialogService.open('error','Main.MainCenter.NotAddedComment');
+      }
+    });
+
+  }
+
+  deleteComment(commentId:string, postId:string){
+    this.commentService.deleteComment(commentId).subscribe(result => {
+      if(result.isSuccess){
+        let post = this.posts.find(x => x.id === postId);
+        let index = post?.comments.findIndex(x => x.commentId === commentId);
+        post?.comments.splice(index!, 1);
+        this.dialogService.open('info','Main.MainCenter.DeletedComment');
+      }else{
+        this.dialogService.open('error','Main.MainCenter.NotDeletedComment');
+      }  
+    });
   }
 
   loadMore(){
@@ -102,14 +146,22 @@ export class MainCenterComponent implements OnInit {
     return true;
   }
 
-  expandComment(expansionPanel:MatExpansionPanel){
-    if(expansionPanel.expanded)
+  expandComment(expansionPanel:MatExpansionPanel, button:MatButton){
+    if(expansionPanel.expanded){
+      button.color = undefined;
       expansionPanel.close();
-    else
+    }
+    else{
+      button.color = 'primary'
       expansionPanel.open();
+    }
+      
   }
 
   getRouter(userName:string) : string{
+    if(this.userService.userName === userName)
+      return '/profile'
+
     return '/profile/' + userName
   }
 

@@ -32,9 +32,9 @@ export class FollowService {
     return this.http.delete<Result>(url);
   }
 
-  follow(followModel:FollowModel){
+  follow(followModel:FollowModel):Observable<ResultData<string>>{
     const url : string = `${environment.apiUrl}api/Follower/Follow`;
-    return this.http.post<Result>(url,followModel);
+    return this.http.post<ResultData<string>>(url,followModel);
   }
 
   getFollowingList(){

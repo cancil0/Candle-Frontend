@@ -104,9 +104,20 @@
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-radio-group aria-label="Select an option" formControlName="gender" required>
-        <mat-radio-button value="M">Erkek</mat-radio-button>
-        <mat-radio-button value="F">Kadın</mat-radio-button>
+        <mat-radio-button value="M">{{ 'Login.SignUp.Male' | translate }}</mat-radio-button>
+        <mat-radio-button value="F">{{ 'Login.SignUp.Female' | translate }}</mat-radio-button>
       </mat-radio-group>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'Login.SignUp.ProfileStatus' | translate }}</mat-label>
+      <mat-select formControName="profileStatus" required>
+        <mat-option value=null></mat-option>
+        <mat-option *ngFor="let status of profileStatus" [value]="status.key">
+          {{status.description}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     </mat-grid-tile>
   </mat-grid-list>
   <mat-grid-list cols="1" rowHeight="75px">

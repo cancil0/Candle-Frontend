@@ -35,10 +35,7 @@ export class NavbarComponent implements OnInit {
     if (value === this.localStorageService.language)
       return
 
-    this.localStorageService.setLanguage(value).then(()=>{
-      window.location.reload();
-    });
-    
+    this.localStorageService.setLanguage(value)
   }
 
   logOut(){

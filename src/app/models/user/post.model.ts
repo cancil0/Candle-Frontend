@@ -6,6 +6,7 @@ import { Comment } from "./comment.model";
 export class Post{
     id : string = '';
     userName: string = '';
+    userId: string = '';
     content : string = '';
     createTime: Date = new Date();
     profilePhotoPath:string = '';

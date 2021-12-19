@@ -60,6 +60,12 @@
             "MobileNo":"Telefon Numarası",
             "BirthDate":"Doğum Tarihi",
             "SignUp":"Kayıt Ol",
+            "ProfileStatus":"Profili Kimler Görebilir?",
+            "Confidential":"Hiç Kimse",
+            "Friend":"Sadece Arkadaşlar",
+            "Everyone":"Herkes",
+            "Male":"Erkek",
+            "Female":"Kadın",
             "SuccessfulSingUpProceed":"Kayıt başarılı. Şimdi giriş yapmak istiyor musunuz?",
             "Exception":{
                 "ValidMail":"Lütfen geçerli bir e-posta girin",
@@ -85,10 +91,16 @@
             "SuccessChangedPassword":"Şifreniz başarıyla değiştirlmiştir",
             "PinDirectory":"Yeni pininizi Masaütünüzde bulunan {0}-Pin.txt'nın içerisinde bulabilirsiniz",
             "SecondLeft":"Saniye Kaldı",
+            "Date":"Tarih",
+            "Time":"Saat",
+            "CautionLine":"Lütfen pini kimseyle paylaşmayın",
+            "SecondsLine":"Bu pini kullanmak için 60 saniyeniz var",
+            "FillOneofCredential":"Devam etmek için lütfen aşağıda bulunan alanlardan birini doldurunuz",
             "Exception":{
                 "NotFoundWithGivenMail":"Maile bağlı bir hesap bulunamadı",
                 "EnteredWrongPin":"Yanlış pin girdiniz. Lütfen tekrar deneyin",
-                "UserNotFound":"Kullanıcı Bulunamadı"
+                "UserNotFound":"Kullanıcı Bulunamadı",
+                "FillOneofThem":"Hesabınızın giriş bilgilerinden birini doldurmak zorundasınız."
             }
         }
     },
@@ -106,9 +118,14 @@
             "Like":"Beğen",
             "Comment":"Yorum Yap",
             "Comments":"Yorumlar",
+            "DeleteComment":"Sil",
+            "UpdateComment":"Düzenle",
             "YourComment":"Yorumun",
             "ShowMore":"Daha Fazla Post Göster",
-            "NoLeftShared":"Tebrikler, Tüm Postları Gördünüz"
+            "NoLeftShared":"Tebrikler, Tüm Postları Gördünüz",
+            "DeletedComment":"Yorumunuz silindi",
+            "NotAddedComment":"Bir hata ile karşılasıldı. Yorumunuz eklenemedi",
+            "NotDeletedComment":"Bir hata ile karşılasıldı. Yorumunuz silinemedi"
         },
         "PreviewPostDialog":{
             "LastVersion":"Postunuzun Son Hali",
@@ -116,8 +133,11 @@
             "Day":"1 Gün"
         },
         "Profile":{
-            "Following":"Takip Edilenler",
+            "Followings":"Takip Edilenler",
             "Follower":"Takip Edenler",
+            "Following":"Takip Ediliyor",
+            "Follow":"Takip Et",
+            "Message":"Mesaj",
             "Post":"Gönderi",
             "Photos":"Fotoğraflar",
             "Labels":"Etiketler",

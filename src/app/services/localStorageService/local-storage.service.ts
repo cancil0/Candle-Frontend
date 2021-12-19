@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class LocalStorageService {
   token: string = '';
   language: string = '';
   
-  constructor() {}
+  constructor(private translateService:TranslateService) {}
 
   async setToken(tokenData:string) {
     localStorage.setItem('token', tokenData);
@@ -26,7 +27,7 @@ export class LocalStorageService {
 
     localStorage.setItem('lang', langCode);
     this.language = langCode;
-    window.location.reload();
+    this.translateService.use(langCode)
   }
 
 }

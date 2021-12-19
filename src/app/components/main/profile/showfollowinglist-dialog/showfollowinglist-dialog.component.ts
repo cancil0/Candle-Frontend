@@ -158,7 +158,7 @@ export class ShowFollowingListDialogComponent implements OnInit {
         button.disabled = true;
         button._elementRef.nativeElement.textContent = this.followingText;
         this.followService.addToFollowingList({
-          id:'',
+          id:res.data,
           followerId:this.followModel.followerId,
           followerName:followerName
         })

@@ -16,16 +16,25 @@
       </div>
       <div class="grid-item">
         <div class="bold-text clickable" (click)="followingList()">{{getProfileInfoDto.following}}</div>
-        <div class="bottom-photo clickable" (click)="followingList()">{{'Main.Profile.Following' | translate}}</div>
+        <div class="bottom-photo clickable" (click)="followingList()">{{'Main.Profile.Followings' | translate}}</div>
       </div>
       <div class="grid-item">
         <div class="bold-text clickable" (click)="followerList()">{{getProfileInfoDto.follower}}</div>
         <div class="bottom-photo clickable" (click)="followerList()">{{'Main.Profile.Follower' | translate}}</div>
       </div>
     </div>
+    <div class="profile-info-buttons" *ngIf="!isMyProfile">
+      <button mat-raised-button class="info-button-follow" color="primary" *ngIf="!isFollowing" (click)="follow()">{{followButtonText}}</button>
+      <button mat-stroked-button class="info-button-follow" color="primary" *ngIf="isFollowing" (click)="follow()">{{followButtonText}}</button>
+      <span class="spacer"></span>
+      <button mat-stroked-button class="info-button-message" >{{'Main.Profile.Message' | translate}}</button>
+    </div>
     <mat-divider></mat-divider>
     <div class="text-center">
-      <mat-tab-group mat-align-tabs="center">
+      <div *ngIf="isProfileOpenText !== ''">
+        <span >{{isProfileOpenText}}</span>
+      </div>
+      <mat-tab-group mat-align-tabs="center" *ngIf="isProfileOpenText === ''">
         <mat-tab>
           <mat-progress-bar mode="indeterminate" *ngIf="isLoading && !isLastRequest"></mat-progress-bar>
           <ng-template mat-tab-label>
@@ -73,10 +82,13 @@
                         matTooltip="{{'Main.MainCenter.Like' | translate}}" [color]="isLiked(post.id) ? 'warn' : undefined">
                         <mat-icon>favorite</mat-icon>
                       </button>
-                      <button mat-icon-button (click)="expandComment(expansionPanel)"
+                      <button mat-icon-button #expandbtn (click)="expandComment(expansionPanel, expandbtn)"
                         matTooltip="{{'Main.MainCenter.Comment' | translate}}">
                         <mat-icon>comment</mat-icon>
                       </button>
+                      <span class="comment-count clickable" *ngIf="post.comments.length > 0" (click)="expandComment(expansionPanel, expandbtn)">
+                        {{post.comments.length}}
+                      </span>
                       <h5 class="like-count" *ngIf="post.likes.length > 1">
                         <span class="clickable" (click)="getRouter(post.likes[0].userName)">{{post.likes[0].userName}} </span> 
                         <span class="clickable"> {{'Main.Profile.And' | translate}} {{post.likes.length -1 }} {{'Main.Profile.OthersLiked' | translate}}</span>
@@ -93,26 +105,38 @@
                         <div class="textarea-container">
                           <mat-form-field appearance="outline">
                             <mat-label>{{'Main.MainCenter.YourComment' | translate}}</mat-label>
-                            <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="4" cd
+                            <textarea matInput #commentText cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="4" cd
                               maxlength="500"></textarea>
                           </mat-form-field>
-                          <button type="button" color="primary" mat-icon-button
+                          <button type="button" color="primary" mat-icon-button (click)="addComment(post.id,commentText,'')"
                             matTooltip="{{'Main.MainCenter.Comment' | translate}}" matTooltipPosition="right">
-                            <mat-icon>add</mat-icon>
+                            <mat-icon>send</mat-icon>
                           </button>
                         </div>
                         <ng-template matExpansionPanelContent>
                           <mat-list role="listitem">
-                            <mat-list-item role="comments" *ngFor="let comment of post.comments">
-                              <div class="commentusername">
-                                {{comment.userName}}
-                              </div>
-                              <div class="commenttext">
-                                {{comment.commentText}}
-                              </div>
+                            <mat-list-item role="comments" *ngFor="let comment of post.comments;" [disableRipple]="true">
+                              <img class="clickable" matListAvatar [src]="comment.userProfilePhoto" [routerLink]="pathRoute(comment.userName)">
+                              <h3 class="clickable" matLine class="username" [routerLink]="pathRoute(comment.userName)"> {{comment.userName}} </h3>
+                              <p matLine>
+                                <span> {{comment.commentText}} </span>
+                              </p>
+                              <button mat-icon-button [matMenuTriggerFor]="itemMenu" *ngIf="comment.userName === this.getPostByUserNameDto.userName">
+                                <mat-icon>
+                                  more_vert
+                                </mat-icon>
+                              </button>
+                              <mat-menu #itemMenu="matMenu">
+                                <button mat-menu-item>
+                                  <mat-icon>create</mat-icon> {{'Main.MainCenter.UpdateComment' | translate}}
+                                </button>
+                                <button mat-menu-item (click)="deleteComment(comment.commentId, post.id)">
+                                  <mat-icon>delete_outline</mat-icon> {{'Main.MainCenter.DeleteComment' | translate}}
+                                </button>
+                              </mat-menu>
                               <mat-divider></mat-divider>
                             </mat-list-item>
-                          </mat-list>
+                        </mat-list>
                         </ng-template>
                       </mat-expansion-panel>
                     </mat-accordion>

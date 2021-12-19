@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { SignupRequestDto } from 'src/app/models/login/signupRequestDto.model';
 import { DialogService } from 'src/app/services/dialogService/dialog.service';
 import { SignUpService } from 'src/app/services/loginService/sign-up.service';
@@ -20,10 +21,15 @@ export class SignupComponent implements OnInit {
   hiderepass:boolean = true;
   matcher = new ErrorStateMatcher();
   passwordMatcher = new ErrorStateMatcher();
-
+  profileStatus = [
+    {key:'C', description:this.translateService.instant('Login.SignUp.Confidential')}, 
+    {key:'F', description:this.translateService.instant('Login.SignUp.Friend')}, 
+    {key:'E', description:this.translateService.instant('Login.SignUp.Everyone')}
+  ];
   constructor(private dialog:DialogService,
               private route:Router,
-              private signUpService:SignUpService) { }
+              private signUpService:SignUpService,
+              private translateService:TranslateService) { }
 
   ngOnInit(): void {
     Object.keys(this.signupRequestDto).forEach(name=>{
@@ -63,7 +69,8 @@ export class SignupComponent implements OnInit {
       userName:this.formGroup.controls['userName'].value,
       secondaryEmail:this.formGroup.controls['secondaryEmail'].value,
       birthDate:this.formGroup.controls['birthDate'].value,
-      gender:this.formGroup.controls['gender'].value
+      gender:this.formGroup.controls['gender'].value,
+      profileStatus:this.formGroup.controls['profileStatus'].value
     }
 
     this.signUpService.signUp(this.signupRequestDto).subscribe( res => {

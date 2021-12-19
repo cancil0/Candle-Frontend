@@ -15,7 +15,7 @@
 }
 
 .example-card {
-    max-width: 350px;
+    max-width: 388px;
     display:inline-block;
   }
   
@@ -53,7 +53,7 @@
   }
   
   .mat-form-field{
-    width: 80%;
+    width: 88%;
   }
   
   .textarea-container textarea {
@@ -196,5 +196,53 @@
 }
 
 .like-count{
+  margin-left: 2%;
+}
+
+.comment-count{
+  margin-left: -2%;
+}
+
+.profile-info-buttons{
+  margin-right: 1%;
+  display: flex; 
+  justify-content: left; 
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+.profile-info-buttons .info-button-follow{
+  margin-right: 1%;
   margin-left: 5%;
+}
+
+.mat-list {
+  max-height: 150px;
+  overflow: auto;
+  text-align: left;
+  -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.mat-list::-webkit-scrollbar {
+  display: none;
+}
+
+.mat-list .username{
+  font-weight: bold;
+}
+
+ .mat-list-avatar{
+  width: 30px !important;
+    height: 30px !important;
+    
+}
+
+.mat-list-item{
+  padding: 0px !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: auto;
 }

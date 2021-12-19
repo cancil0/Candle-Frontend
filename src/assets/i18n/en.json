@@ -60,7 +60,13 @@
             "MobileNo":"Mobile No",
             "BirthDate":"Birth Date",
             "SignUp":"Sign Up",
-            "SuccessfulSingUpProceed":"Sign Up sucessful. Do you want to login now?",
+            "ProfileStatus":"Who Can Look Your Profile?",
+            "Confidential":"Confidential",
+            "Friend":"Just Friend",
+            "Everyone":"Everyone",
+            "Male":"Male",
+            "Female":"Female",
+            "SuccessfulSingUpProceed":"Sign Up successful. Do you want to login now?",
             "Exception":{
                 "ValidMail":"Please enter a valid email address",
                 "IsMail":"Email is required",
@@ -85,10 +91,16 @@
             "SuccessChangedPassword":"Your password is changed successfully",
             "PinDirectory":"You can find your new pin in {0}-Pin.txt where is at your Desktop",
             "SecondLeft":"Seconds Left",
+            "Date":"Date",
+            "Time":"Time",
+            "CautionLine":"Please do not share your pin with anybody",
+            "SecondsLine":"You have 60 seconds to use this pin",
+            "FillOneofCredential":"Please fill one of the credentials at the below to proceed",
             "Exception":{
                 "NotFoundWithGivenMail":"Account is not found with given mail",
                 "EnteredWrongPin":"You enter wrong pin. Please try again",
-                "UserNotFound":"User Not Found"
+                "UserNotFound":"User Not Found",
+                "FillOneofThem":"You have to fill one of the your account's credential."
             }
         }
     },
@@ -106,9 +118,14 @@
             "Like":"Like",
             "Comment":"Comment",
             "Comments":"Comments",
+            "DeleteComment":"Delete",
+            "UpdateComment":"Update",
             "YourComment":"Your Comment",
             "ShowMore":"Show More Post",
-            "NoLeftShared":"Congragulations. You Checked All Posts"
+            "NoLeftShared":"Congragulations. You Checked All Posts",
+            "DeletedComment":"Comment is deleted",
+            "NotAddedComment":"Something went wrong. Comment is not added",
+            "NotDeletedComment":"Something went wrong. Comment is not deleted"
         },
         "PreviewPostDialog":{
             "LastVersion":"Last Version of Your Post",
@@ -116,8 +133,11 @@
             "Day":"1 Day"
         },
         "Profile":{
-            "Following":"Following",
+            "Followings":"Followings",
             "Follower":"Follower",
+            "Following":"Following",
+            "Follow":"Follow",
+            "Message":"Message",
             "Post":"Post",
             "Photos":"Photos",
             "Labels":"Labels",

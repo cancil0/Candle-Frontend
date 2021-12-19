@@ -9,4 +9,5 @@ export class SignupRequestDto{
     password:string = '';
     userName:string = '';
     gender:string = '';
+    profileStatus:string = '';
 }
