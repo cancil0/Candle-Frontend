@@ -22,7 +22,8 @@ export class AppComponent {
               private localStorageService:LocalStorageService,
               private followService:FollowService) {
 
-      this.token = this.localStorageService.token = localStorage.getItem('token') || '';
+      this.localStorageService.setToken(localStorage.getItem('token') || '');
+      this.token = this.localStorageService.token;
       var diffTime = 0;
       if(this.token !== ''){
         this.decodedToken = this.decodeJwt(this.token)
@@ -36,20 +37,22 @@ export class AppComponent {
         this.followService.getFollowings(this.decodedToken.userName).subscribe((res) => {
           if(res.isSuccess){
             this.followService.setFollowingList(res.data);
-          }});
+          }
+        });
 
-          this.followService.getFollowers(this.decodedToken.userName).subscribe((res) => {
-            if(res.isSuccess){
-              this.followService.setFollowerList(res.data);
-            }});
+        this.followService.getFollowers(this.decodedToken.userName).subscribe((res) => {
+          if(res.isSuccess){
+            this.followService.setFollowerList(res.data);
+          }
+        });
       }
       
       // this language will be used as a fallback when a translation isn't found in the current language
       translate.setDefaultLang('en');
       
       // the lang to use, if the lang isn't available, it will use the current loader to get them
-      this.lang = this.localStorageService.language = localStorage.getItem('lang') || translate.getBrowserLang();
-      this.localStorageService.setLanguage(this.lang)
+      this.lang = this.localStorageService.language = localStorage.getItem('lang')!;
+      this.localStorageService.setLanguage(this.lang, false)
       
       if(this.token !== '' && diffTime > 0){
         this.router.navigateByUrl('/').then(() => {

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { DateAdapter } from '@angular/material/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -9,7 +11,9 @@ export class LocalStorageService {
   token: string = '';
   language: string = '';
   
-  constructor(private translateService:TranslateService) {}
+  constructor(private translateService:TranslateService,
+              private adapter: DateAdapter<any>,
+              private router: Router) {}
 
   async setToken(tokenData:string) {
     localStorage.setItem('token', tokenData);
@@ -21,13 +25,19 @@ export class LocalStorageService {
     this.token = '';
   }
 
-  async setLanguage(langCode:string) {
-    if(this.language === langCode)
+  async setLanguage(langCode:string, checkOldLang:boolean = true) {
+    if(this.language === langCode && checkOldLang)
       return;
 
-    localStorage.setItem('lang', langCode);
-    this.language = langCode;
-    this.translateService.use(langCode)
+    this.router.navigateByUrl('/').then(() => {
+      localStorage.setItem('lang', langCode);
+      this.adapter.setLocale(langCode);
+      this.language = langCode;
+      this.translateService.use(langCode)
+      if(checkOldLang)
+        this.router.navigate(['/main'])
+    });
+    
   }
 
 }
