@@ -1,10 +1,13 @@
 <p class="navbar">
-  <mat-toolbar color="primary">
+  <mat-toolbar color="primary"> 
     <span class="title" [routerLink]="token !== '' ? '/main' : '/' ">{{'Common.Title' | translate}}</span>
     <a mat-button routerLink="/main" *ngIf="isLogin">{{'Basic.Navbar.Mainpage' | translate}}</a>
     <a mat-button routerLink="/profile" *ngIf="isLogin">{{'Basic.Navbar.Profile' | translate}}</a>
     <a mat-button routerLink="/discover" *ngIf="isLogin">{{'Basic.Navbar.Discover' | translate}}</a>
     <span class="example-spacer"></span>
+    <div *ngIf="!isLogin">
+      <img *ngFor="let lang of languages" (click)="selectLang(lang.code)" class="loginNavFlags clickable" src="../../../../assets/flags/{{lang.code}}.png"/>
+    </div>
     <button mat-button [matMenuTriggerFor]="messageMenu" *ngIf="isLogin"  matBadge="2" [matBadgeHidden]="true"  matBadgeColor="warn" mat-icon-button matTooltip="{{'Basic.Navbar.Messages' | translate}}">
       <mat-icon> message</mat-icon>
     </button>
